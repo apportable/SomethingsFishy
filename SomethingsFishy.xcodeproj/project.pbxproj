@@ -13,6 +13,15 @@
 		D9AC901519A91E63003E99EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AC901319A91E63003E99EC /* Main.storyboard */; };
 		D9AC901719A91E63003E99EC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9AC901619A91E63003E99EC /* Images.xcassets */; };
 		D9AC902319A91E64003E99EC /* SomethingsFishyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AC902219A91E64003E99EC /* SomethingsFishyTests.m */; };
+		D9AC905D19A93529003E99EC /* DirectDisplayShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D9AC905719A93529003E99EC /* DirectDisplayShader.fsh */; };
+		D9AC905E19A93529003E99EC /* DirectDisplayShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D9AC905819A93529003E99EC /* DirectDisplayShader.vsh */; };
+		D9AC905F19A93529003E99EC /* PositionShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D9AC905919A93529003E99EC /* PositionShader.fsh */; };
+		D9AC906019A93529003E99EC /* PositionShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D9AC905A19A93529003E99EC /* PositionShader.vsh */; };
+		D9AC906119A93529003E99EC /* ThresholdShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D9AC905B19A93529003E99EC /* ThresholdShader.fsh */; };
+		D9AC906219A93529003E99EC /* ThresholdShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D9AC905C19A93529003E99EC /* ThresholdShader.vsh */; };
+		D9AC906519A93587003E99EC /* ColorTrackingGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AC906419A93587003E99EC /* ColorTrackingGLView.m */; };
+		D9AC906719A935F2003E99EC /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AC906619A935F2003E99EC /* OpenGLES.framework */; };
+		D9AC906A19A9362D003E99EC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AC906919A9362D003E99EC /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,27 +31,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = D9AC900519A91E63003E99EC;
 			remoteInfo = SomethingsFishy;
-		};
-		D9AC903C19A91FEC003E99EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D9AC903619A91FEC003E99EC /* GPUImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
-			remoteInfo = GPUImage;
-		};
-		D9AC903E19A91FEC003E99EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D9AC903619A91FEC003E99EC /* GPUImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCE209E51943F20C002FEED8;
-			remoteInfo = GPUImageFramework;
-		};
-		D9AC904019A91FFC003E99EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D9AC903619A91FEC003E99EC /* GPUImage.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = BCE209E41943F20C002FEED8;
-			remoteInfo = GPUImageFramework;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -59,7 +47,16 @@
 		D9AC901C19A91E64003E99EC /* SomethingsFishyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SomethingsFishyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AC902119A91E64003E99EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9AC902219A91E64003E99EC /* SomethingsFishyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SomethingsFishyTests.m; sourceTree = "<group>"; };
-		D9AC903619A91FEC003E99EC /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = "GPUImage-master/framework/GPUImage.xcodeproj"; sourceTree = "<group>"; };
+		D9AC905719A93529003E99EC /* DirectDisplayShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DirectDisplayShader.fsh; sourceTree = "<group>"; };
+		D9AC905819A93529003E99EC /* DirectDisplayShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DirectDisplayShader.vsh; sourceTree = "<group>"; };
+		D9AC905919A93529003E99EC /* PositionShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = PositionShader.fsh; sourceTree = "<group>"; };
+		D9AC905A19A93529003E99EC /* PositionShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = PositionShader.vsh; sourceTree = "<group>"; };
+		D9AC905B19A93529003E99EC /* ThresholdShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ThresholdShader.fsh; sourceTree = "<group>"; };
+		D9AC905C19A93529003E99EC /* ThresholdShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ThresholdShader.vsh; sourceTree = "<group>"; };
+		D9AC906319A93587003E99EC /* ColorTrackingGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorTrackingGLView.h; sourceTree = "<group>"; };
+		D9AC906419A93587003E99EC /* ColorTrackingGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTrackingGLView.m; sourceTree = "<group>"; };
+		D9AC906619A935F2003E99EC /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		D9AC906919A9362D003E99EC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9AC906A19A9362D003E99EC /* QuartzCore.framework in Frameworks */,
+				D9AC906719A935F2003E99EC /* OpenGLES.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,10 +82,11 @@
 		D9AC8FFD19A91E63003E99EC = {
 			isa = PBXGroup;
 			children = (
-				D9AC903619A91FEC003E99EC /* GPUImage.xcodeproj */,
 				D9AC900819A91E63003E99EC /* SomethingsFishy */,
 				D9AC901F19A91E64003E99EC /* SomethingsFishyTests */,
 				D9AC900719A91E63003E99EC /* Products */,
+				D9AC905619A93529003E99EC /* Shaders */,
+				D9AC906819A93606003E99EC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +106,8 @@
 				D9AC900E19A91E63003E99EC /* AppDelegate.m */,
 				D9AC901019A91E63003E99EC /* ViewController.h */,
 				D9AC901119A91E63003E99EC /* ViewController.m */,
+				D9AC906319A93587003E99EC /* ColorTrackingGLView.h */,
+				D9AC906419A93587003E99EC /* ColorTrackingGLView.m */,
 				D9AC901319A91E63003E99EC /* Main.storyboard */,
 				D9AC901619A91E63003E99EC /* Images.xcassets */,
 				D9AC900919A91E63003E99EC /* Supporting Files */,
@@ -139,13 +141,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D9AC903719A91FEC003E99EC /* Products */ = {
+		D9AC905619A93529003E99EC /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				D9AC903D19A91FEC003E99EC /* libGPUImage.a */,
-				D9AC903F19A91FEC003E99EC /* GPUImage.framework */,
+				D9AC905719A93529003E99EC /* DirectDisplayShader.fsh */,
+				D9AC905819A93529003E99EC /* DirectDisplayShader.vsh */,
+				D9AC905919A93529003E99EC /* PositionShader.fsh */,
+				D9AC905A19A93529003E99EC /* PositionShader.vsh */,
+				D9AC905B19A93529003E99EC /* ThresholdShader.fsh */,
+				D9AC905C19A93529003E99EC /* ThresholdShader.vsh */,
 			);
-			name = Products;
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		D9AC906819A93606003E99EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC906919A9362D003E99EC /* QuartzCore.framework */,
+				D9AC906619A935F2003E99EC /* OpenGLES.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +177,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				D9AC904119A91FFC003E99EC /* PBXTargetDependency */,
 			);
 			name = SomethingsFishy;
 			productName = SomethingsFishy;
@@ -217,12 +231,6 @@
 			mainGroup = D9AC8FFD19A91E63003E99EC;
 			productRefGroup = D9AC900719A91E63003E99EC /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = D9AC903719A91FEC003E99EC /* Products */;
-					ProjectRef = D9AC903619A91FEC003E99EC /* GPUImage.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				D9AC900519A91E63003E99EC /* SomethingsFishy */,
@@ -231,30 +239,19 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		D9AC903D19A91FEC003E99EC /* libGPUImage.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libGPUImage.a;
-			remoteRef = D9AC903C19A91FEC003E99EC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D9AC903F19A91FEC003E99EC /* GPUImage.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = GPUImage.framework;
-			remoteRef = D9AC903E19A91FEC003E99EC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		D9AC900419A91E63003E99EC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9AC905D19A93529003E99EC /* DirectDisplayShader.fsh in Resources */,
+				D9AC905F19A93529003E99EC /* PositionShader.fsh in Resources */,
+				D9AC906119A93529003E99EC /* ThresholdShader.fsh in Resources */,
 				D9AC901519A91E63003E99EC /* Main.storyboard in Resources */,
+				D9AC905E19A93529003E99EC /* DirectDisplayShader.vsh in Resources */,
 				D9AC901719A91E63003E99EC /* Images.xcassets in Resources */,
+				D9AC906219A93529003E99EC /* ThresholdShader.vsh in Resources */,
+				D9AC906019A93529003E99EC /* PositionShader.vsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9AC906519A93587003E99EC /* ColorTrackingGLView.m in Sources */,
 				D9AC901219A91E63003E99EC /* ViewController.m in Sources */,
 				D9AC900F19A91E63003E99EC /* AppDelegate.m in Sources */,
 				D9AC900C19A91E63003E99EC /* main.m in Sources */,
@@ -293,11 +291,6 @@
 			isa = PBXTargetDependency;
 			target = D9AC900519A91E63003E99EC /* SomethingsFishy */;
 			targetProxy = D9AC901D19A91E64003E99EC /* PBXContainerItemProxy */;
-		};
-		D9AC904119A91FFC003E99EC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GPUImageFramework;
-			targetProxy = D9AC904019A91FFC003E99EC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

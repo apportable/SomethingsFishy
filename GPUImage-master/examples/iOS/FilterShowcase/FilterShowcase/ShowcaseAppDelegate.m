@@ -17,7 +17,7 @@
     filterListController = [[ShowcaseFilterListController alloc] initWithNibName:nil bundle:nil];
     
     [filterNavigationController pushViewController:filterListController animated:NO];
-
+    [self.window setRootViewController:filterNavigationController];
     [self.window makeKeyAndVisible];
     
     return YES;

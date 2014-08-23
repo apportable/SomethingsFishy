@@ -51,19 +51,19 @@
 			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
 			remoteInfo = GPUImage;
 		};
-		BCF866C51725894100912E34 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BC982B2714F049950001FF6F /* GPUImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCF1A34414DDB1EC00852800;
-			remoteInfo = GPUImageTests;
-		};
 		BCF866CD1725A19100912E34 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BC982B2714F049950001FF6F /* GPUImage.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = BCF1A33314DDB1EC00852800;
 			remoteInfo = GPUImage;
+		};
+		D9AC904C19A9218C003E99EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC982B2714F049950001FF6F /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE209E51943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -213,7 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				BCF866C41725894100912E34 /* libGPUImage.a */,
-				BCF866C61725894100912E34 /* GPUImageTests.octest */,
+				D9AC904D19A9218C003E99EC /* GPUImage.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,11 +246,11 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Showcase;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Cell Phone";
 				TargetAttributes = {
 					BC982B0114F046AC0001FF6F = {
-						DevelopmentTeam = J2U2U9GBML;
+						DevelopmentTeam = TR92W3L8CQ;
 					};
 				};
 			};
@@ -285,11 +285,11 @@
 			remoteRef = BCF866C31725894100912E34 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		BCF866C61725894100912E34 /* GPUImageTests.octest */ = {
+		D9AC904D19A9218C003E99EC /* GPUImage.framework */ = {
 			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = GPUImageTests.octest;
-			remoteRef = BCF866C51725894100912E34 /* PBXContainerItemProxy */;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = D9AC904C19A9218C003E99EC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -368,9 +368,11 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -408,9 +410,11 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -440,6 +444,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FilterShowcase/FilterShowcase-Prefix.pch";
 				INFOPLIST_FILE = "FilterShowcase/FilterShowcase-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -454,6 +459,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FilterShowcase/FilterShowcase-Prefix.pch";
 				INFOPLIST_FILE = "FilterShowcase/FilterShowcase-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

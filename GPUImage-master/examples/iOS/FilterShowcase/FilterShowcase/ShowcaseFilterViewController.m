@@ -614,7 +614,7 @@
         }; break;
         case GPUIMAGE_MOTIONDETECTOR:
         {
-            [videoCamera rotateCamera];
+            //[videoCamera rotateCamera];
 
             self.title = @"Motion Detector";
             self.filterSettingsSlider.hidden = NO;
@@ -1500,6 +1500,8 @@
         }
         else if (filterType == GPUIMAGE_MOTIONDETECTOR)
         {
+            [videoCamera removeAllTargets];
+            
             faceView = [[UIView alloc] initWithFrame:CGRectMake(100.0, 100.0, 100.0, 100.0)];
             faceView.layer.borderWidth = 1;
             faceView.layer.borderColor = [[UIColor redColor] CGColor];

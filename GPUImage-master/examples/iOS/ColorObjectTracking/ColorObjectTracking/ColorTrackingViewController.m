@@ -48,7 +48,7 @@
 - (void)configureVideoFiltering;
 {
 	CGRect mainScreenFrame = [[UIScreen mainScreen] applicationFrame];	
-    videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset640x480 cameraPosition:AVCaptureDevicePositionBack];
+    videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset1280x720 cameraPosition:AVCaptureDevicePositionBack];
     videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
     filteredVideoView = [[GPUImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, mainScreenFrame.size.width, mainScreenFrame.size.height)];
     [self.view addSubview:filteredVideoView];
@@ -64,7 +64,7 @@
 //    videoPixelSize.width *= [filteredVideoView contentScaleFactor];
 //    videoPixelSize.height *= [filteredVideoView contentScaleFactor];
     
-    CGSize videoPixelSize = CGSizeMake(480.0, 640.0);
+    CGSize videoPixelSize = CGSizeMake(1280.0, 720.0);
     
     positionRawData = [[GPUImageRawDataOutput alloc] initWithImageSize:videoPixelSize resultsInBGRAFormat:YES];
     __unsafe_unretained ColorTrackingViewController *weakSelf = self;
@@ -132,7 +132,7 @@
 }
 
 - (void)configureToolbar;
-{
+{ 
 	UISegmentedControl *displayModeControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:NSLocalizedString(@"Video", nil), NSLocalizedString(@"Threshold", nil), NSLocalizedString(@"Position", nil), NSLocalizedString(@"Track", nil), nil]];
 	displayModeControl.segmentedControlStyle = UISegmentedControlStyleBar;
 	displayModeControl.selectedSegmentIndex = 0;
