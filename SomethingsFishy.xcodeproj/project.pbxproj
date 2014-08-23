@@ -22,6 +22,9 @@
 		D9AC906519A93587003E99EC /* ColorTrackingGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AC906419A93587003E99EC /* ColorTrackingGLView.m */; };
 		D9AC906719A935F2003E99EC /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AC906619A935F2003E99EC /* OpenGLES.framework */; };
 		D9AC906A19A9362D003E99EC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AC906919A9362D003E99EC /* QuartzCore.framework */; };
+		D9AC906D19A93787003E99EC /* ColorTrackingCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AC906C19A93787003E99EC /* ColorTrackingCamera.m */; };
+		D9AC906F19A93792003E99EC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AC906E19A93792003E99EC /* CoreMedia.framework */; };
+		D9AC907119A9379A003E99EC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AC907019A9379A003E99EC /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,10 @@
 		D9AC906419A93587003E99EC /* ColorTrackingGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTrackingGLView.m; sourceTree = "<group>"; };
 		D9AC906619A935F2003E99EC /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		D9AC906919A9362D003E99EC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D9AC906B19A93787003E99EC /* ColorTrackingCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorTrackingCamera.h; sourceTree = "<group>"; };
+		D9AC906C19A93787003E99EC /* ColorTrackingCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTrackingCamera.m; sourceTree = "<group>"; };
+		D9AC906E19A93792003E99EC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		D9AC907019A9379A003E99EC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9AC907119A9379A003E99EC /* AVFoundation.framework in Frameworks */,
+				D9AC906F19A93792003E99EC /* CoreMedia.framework in Frameworks */,
 				D9AC906A19A9362D003E99EC /* QuartzCore.framework in Frameworks */,
 				D9AC906719A935F2003E99EC /* OpenGLES.framework in Frameworks */,
 			);
@@ -108,6 +117,8 @@
 				D9AC901119A91E63003E99EC /* ViewController.m */,
 				D9AC906319A93587003E99EC /* ColorTrackingGLView.h */,
 				D9AC906419A93587003E99EC /* ColorTrackingGLView.m */,
+				D9AC906B19A93787003E99EC /* ColorTrackingCamera.h */,
+				D9AC906C19A93787003E99EC /* ColorTrackingCamera.m */,
 				D9AC901319A91E63003E99EC /* Main.storyboard */,
 				D9AC901619A91E63003E99EC /* Images.xcassets */,
 				D9AC900919A91E63003E99EC /* Supporting Files */,
@@ -157,6 +168,8 @@
 		D9AC906819A93606003E99EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9AC907019A9379A003E99EC /* AVFoundation.framework */,
+				D9AC906E19A93792003E99EC /* CoreMedia.framework */,
 				D9AC906919A9362D003E99EC /* QuartzCore.framework */,
 				D9AC906619A935F2003E99EC /* OpenGLES.framework */,
 			);
@@ -272,6 +285,7 @@
 				D9AC906519A93587003E99EC /* ColorTrackingGLView.m in Sources */,
 				D9AC901219A91E63003E99EC /* ViewController.m in Sources */,
 				D9AC900F19A91E63003E99EC /* AppDelegate.m in Sources */,
+				D9AC906D19A93787003E99EC /* ColorTrackingCamera.m in Sources */,
 				D9AC900C19A91E63003E99EC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

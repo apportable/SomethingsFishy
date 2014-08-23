@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ColorTrackingGLView.h"
 
 @interface ViewController ()
 
@@ -22,6 +23,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)loadView {
+    self.view = [[ColorTrackingGLView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
 }
 
 @end

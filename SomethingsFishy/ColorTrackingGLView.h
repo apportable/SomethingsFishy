@@ -12,12 +12,16 @@
 #import <OpenGLES/EAGL.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
+#import "ColorTrackingCamera.h"
 
-#define FBO_HEIGHT 480
-#define FBO_WIDTH 320
 
-@interface ColorTrackingGLView : UIView 
+typedef enum { PASSTHROUGH_VIDEO, SIMPLE_THRESHOLDING, POSITION_THRESHOLDING, OBJECT_TRACKING} ColorTrackingDisplayMode;
+
+
+
+@interface ColorTrackingGLView : UIView <ColorTrackingCameraDelegate>
 {
+    ColorTrackingCamera *camera;
 	/* The pixel dimensions of the backbuffer */
 	GLint backingWidth, backingHeight;
 	
@@ -28,6 +32,20 @@
 	
 	GLuint positionRenderTexture;
 	GLuint positionRenderbuffer, positionFramebuffer;
+    
+    CALayer *trackingDot;
+    
+    ColorTrackingDisplayMode displayMode;
+    
+    BOOL shouldReplaceThresholdColor;
+    CGPoint currentTouchPoint;
+    GLfloat thresholdSensitivity;
+    GLfloat thresholdColor[3];
+    
+    GLuint directDisplayProgram, thresholdProgram, positionProgram;
+    GLuint videoFrameTexture;
+    
+    GLubyte *rawPositionPixels;
 }
 
 @property(readonly) GLuint positionRenderTexture;
