@@ -23,6 +23,27 @@
 			remoteGlobalIDString = D9AC900519A91E63003E99EC;
 			remoteInfo = SomethingsFishy;
 		};
+		D9AC903C19A91FEC003E99EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9AC903619A91FEC003E99EC /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		D9AC903E19A91FEC003E99EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9AC903619A91FEC003E99EC /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE209E51943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
+		D9AC904019A91FFC003E99EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9AC903619A91FEC003E99EC /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE209E41943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +59,7 @@
 		D9AC901C19A91E64003E99EC /* SomethingsFishyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SomethingsFishyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AC902119A91E64003E99EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9AC902219A91E64003E99EC /* SomethingsFishyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SomethingsFishyTests.m; sourceTree = "<group>"; };
+		D9AC903619A91FEC003E99EC /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = "GPUImage-master/framework/GPUImage.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +83,7 @@
 		D9AC8FFD19A91E63003E99EC = {
 			isa = PBXGroup;
 			children = (
+				D9AC903619A91FEC003E99EC /* GPUImage.xcodeproj */,
 				D9AC900819A91E63003E99EC /* SomethingsFishy */,
 				D9AC901F19A91E64003E99EC /* SomethingsFishyTests */,
 				D9AC900719A91E63003E99EC /* Products */,
@@ -116,6 +139,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D9AC903719A91FEC003E99EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC903D19A91FEC003E99EC /* libGPUImage.a */,
+				D9AC903F19A91FEC003E99EC /* GPUImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -130,6 +162,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D9AC904119A91FFC003E99EC /* PBXTargetDependency */,
 			);
 			name = SomethingsFishy;
 			productName = SomethingsFishy;
@@ -160,6 +193,7 @@
 		D9AC8FFE19A91E63003E99EC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = STF;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = Apportable;
 				TargetAttributes = {
@@ -183,6 +217,12 @@
 			mainGroup = D9AC8FFD19A91E63003E99EC;
 			productRefGroup = D9AC900719A91E63003E99EC /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D9AC903719A91FEC003E99EC /* Products */;
+					ProjectRef = D9AC903619A91FEC003E99EC /* GPUImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D9AC900519A91E63003E99EC /* SomethingsFishy */,
@@ -190,6 +230,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D9AC903D19A91FEC003E99EC /* libGPUImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGPUImage.a;
+			remoteRef = D9AC903C19A91FEC003E99EC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D9AC903F19A91FEC003E99EC /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = D9AC903E19A91FEC003E99EC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D9AC900419A91E63003E99EC /* Resources */ = {
@@ -236,6 +293,11 @@
 			isa = PBXTargetDependency;
 			target = D9AC900519A91E63003E99EC /* SomethingsFishy */;
 			targetProxy = D9AC901D19A91E64003E99EC /* PBXContainerItemProxy */;
+		};
+		D9AC904119A91FFC003E99EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImageFramework;
+			targetProxy = D9AC904019A91FFC003E99EC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -404,6 +466,7 @@
 				D9AC902819A91E64003E99EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D9AC902919A91E64003E99EC /* Build configuration list for PBXNativeTarget "SomethingsFishyTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +475,7 @@
 				D9AC902B19A91E64003E99EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
