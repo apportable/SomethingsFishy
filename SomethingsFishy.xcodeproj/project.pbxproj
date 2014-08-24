@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC88B40F19AA019E00868C1A /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AC90B719A9CFA8003E99EC /* libChipmunkPro-iPhone.a */; };
+		BC88B41B19AA200800868C1A /* Soccer_net_left.png in Resources */ = {isa = PBXBuildFile; fileRef = BC88B41919AA200800868C1A /* Soccer_net_left.png */; };
+		BC88B41C19AA200800868C1A /* Soccer_net_right.png in Resources */ = {isa = PBXBuildFile; fileRef = BC88B41A19AA200800868C1A /* Soccer_net_right.png */; };
 		D9AC900C19A91E63003E99EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AC900B19A91E63003E99EC /* main.m */; };
 		D9AC900F19A91E63003E99EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AC900E19A91E63003E99EC /* AppDelegate.m */; };
 		D9AC901219A91E63003E99EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AC901119A91E63003E99EC /* ViewController.m */; };
@@ -42,10 +45,16 @@
 		D9AC909019A96750003E99EC /* seaweed-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC908119A96750003E99EC /* seaweed-1.png */; };
 		D9AC909119A96750003E99EC /* Bk-Gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC908219A96750003E99EC /* Bk-Gradient.png */; };
 		D9AC90AD19A9CC0A003E99EC /* soccerball.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC90AC19A9CC0A003E99EC /* soccerball.png */; };
-		D9AC90C019A9CFCC003E99EC /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AC90B719A9CFA8003E99EC /* libChipmunkPro-iPhone.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BC88B41019AA01AB00868C1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9AC90AE19A9CFA8003E99EC /* ChipmunkPro.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D33229E81469B1E200C9F85A;
+			remoteInfo = "ChipmunkPro-iPhone";
+		};
 		D9AC901D19A91E64003E99EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D9AC8FFE19A91E63003E99EC /* Project object */;
@@ -81,16 +90,11 @@
 			remoteGlobalIDString = D3121D1218919F6200856016;
 			remoteInfo = ChipmunkPro;
 		};
-		D9AC90BE19A9CFC3003E99EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D9AC90AE19A9CFA8003E99EC /* ChipmunkPro.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D33229E81469B1E200C9F85A;
-			remoteInfo = "ChipmunkPro-iPhone";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC88B41919AA200800868C1A /* Soccer_net_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Soccer_net_left.png; sourceTree = "<group>"; };
+		BC88B41A19AA200800868C1A /* Soccer_net_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Soccer_net_right.png; sourceTree = "<group>"; };
 		D9AC900619A91E63003E99EC /* SomethingsFishy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SomethingsFishy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AC900A19A91E63003E99EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9AC900B19A91E63003E99EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -142,7 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9AC90C019A9CFCC003E99EC /* libChipmunkPro-iPhone.a in Frameworks */,
+				BC88B40F19AA019E00868C1A /* libChipmunkPro-iPhone.a in Frameworks */,
 				D9AC907319A956A3003E99EC /* Accelerate.framework in Frameworks */,
 				D9AC907119A9379A003E99EC /* AVFoundation.framework in Frameworks */,
 				D9AC906F19A93792003E99EC /* CoreMedia.framework in Frameworks */,
@@ -202,6 +206,8 @@
 		D9AC900919A91E63003E99EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BC88B41919AA200800868C1A /* Soccer_net_left.png */,
+				BC88B41A19AA200800868C1A /* Soccer_net_right.png */,
 				D9AC90AC19A9CC0A003E99EC /* soccerball.png */,
 				D9AC907419A96750003E99EC /* clam-3.png */,
 				D9AC907519A96750003E99EC /* Clam-2.png */,
@@ -292,7 +298,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				D9AC90BF19A9CFC3003E99EC /* PBXTargetDependency */,
+				BC88B41119AA01AB00868C1A /* PBXTargetDependency */,
 			);
 			name = SomethingsFishy;
 			productName = SomethingsFishy;
@@ -412,6 +418,7 @@
 				D9AC901519A91E63003E99EC /* Main.storyboard in Resources */,
 				D9AC905E19A93529003E99EC /* DirectDisplayShader.vsh in Resources */,
 				D9AC908F19A96750003E99EC /* seaweed-2.png in Resources */,
+				BC88B41B19AA200800868C1A /* Soccer_net_left.png in Resources */,
 				D9AC908C19A96750003E99EC /* Shafts-Light.png in Resources */,
 				D9AC901719A91E63003E99EC /* Images.xcassets in Resources */,
 				D9AC908B19A96750003E99EC /* Plant-1.png in Resources */,
@@ -419,6 +426,7 @@
 				D9AC906219A93529003E99EC /* ThresholdShader.vsh in Resources */,
 				D9AC909119A96750003E99EC /* Bk-Gradient.png in Resources */,
 				D9AC90AD19A9CC0A003E99EC /* soccerball.png in Resources */,
+				BC88B41C19AA200800868C1A /* Soccer_net_right.png in Resources */,
 				D9AC908519A96750003E99EC /* clam-1.png in Resources */,
 				D9AC906019A93529003E99EC /* PositionShader.vsh in Resources */,
 			);
@@ -457,15 +465,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BC88B41119AA01AB00868C1A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ChipmunkPro-iPhone";
+			targetProxy = BC88B41019AA01AB00868C1A /* PBXContainerItemProxy */;
+		};
 		D9AC901E19A91E64003E99EC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D9AC900519A91E63003E99EC /* SomethingsFishy */;
 			targetProxy = D9AC901D19A91E64003E99EC /* PBXContainerItemProxy */;
-		};
-		D9AC90BF19A9CFC3003E99EC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "ChipmunkPro-iPhone";
-			targetProxy = D9AC90BE19A9CFC3003E99EC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

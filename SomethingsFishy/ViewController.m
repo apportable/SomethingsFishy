@@ -17,6 +17,8 @@
     CALayer *fishLayer;
     CADisplayLink *displayLink;
     UIImageView *soccerballView;
+    UIImageView *netLeftView;
+    UIImageView *netRightView;
     
     ChipmunkSpace *_space;
     
@@ -29,6 +31,9 @@
     CGPoint _lastFishPosition;
     CGPoint _currentFirstPosition;
     CGFloat _currentSpeed;
+    
+    NSUInteger lscore;
+    NSUInteger rscore;
 }
 
 @end
@@ -108,11 +113,20 @@ static NSString *actorType = @"ballType";
     [fishView addTrackingObserver:self];
     [[self view] addSubview:fishView];
     
+    UIImage *netLeftImage = [UIImage imageNamed:@"Soccer_net_left"];
+    UIImage *netRightImage = [UIImage imageNamed:@"Soccer_net_right"];
     
     soccerballView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"soccerball"]];
+    netLeftView = [[UIImageView alloc] initWithImage:netLeftImage];
+    netRightView = [[UIImageView alloc] initWithImage:netRightImage];
     
-    soccerballView.frame = CGRectMake(200, 200, 100, 100);
+    soccerballView.frame = CGRectMake(screen.size.width/2, screen.size.height/2, 100, 100);
+    netLeftView.frame = CGRectMake(0, screen.size.height/2 - 150, 200, 300);
+    netRightView.frame = CGRectMake(screen.size.width - 200, screen.size.height/2 - 150, 200, 300);
+    
     [[self view] addSubview:soccerballView];
+    [[self view] addSubview:netLeftView];
+    [[self view] addSubview:netRightView];
     
     _space = [[ChipmunkHastySpace alloc] init];
     _space.damping = 0.7;
@@ -121,7 +135,7 @@ static NSString *actorType = @"ballType";
     cpFloat moment = cpMomentForCircle(1.0f, 0, 50, cpvzero);
     
     _ballBody = [ChipmunkBody bodyWithMass:1.0f andMoment:moment];
-    _ballBody.position = cpv(200, 200);
+    _ballBody.position = cpv(screen.size.width/2, screen.size.height/2);
     
     _ballShape = [[ChipmunkCircleShape alloc] initWithBody:_ballBody radius:50 offset:cpvzero];
     _ballShape.friction = 0.2f;
