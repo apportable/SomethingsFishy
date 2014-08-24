@@ -52,13 +52,19 @@
     
     UILabel *_leftScoreLabel;
     UILabel *_rightScoreLabel;
+    
+    float xVelocityOnGoal;
 }
 
 @end
 
 static NSString *borderType = @"borderType";
 
-static NSString *actorType = @"ballType";
+static NSString *actorType = @"fishType";
+
+static NSString *leftGoalLineType = @"leftGoalLineType";
+static NSString *rightGoalLineType = @"rightGoalLineType";
+static NSString *ballType = @"ballType";
 
 @implementation ViewController
 
@@ -193,15 +199,26 @@ static NSString *actorType = @"ballType";
     _leftNetRightPoleBody = [ChipmunkBody bodyWithMass:FLT_MAX andMoment:poleMoment];
     _rightNetLeftPoleBody = [ChipmunkBody bodyWithMass:FLT_MAX andMoment:poleMoment];
     _rightNetRightPoleBody = [ChipmunkBody bodyWithMass:FLT_MAX andMoment:poleMoment];
+    
+    cpFloat lineMoment = cpMomentForBox(0, 20, 260);
+    _leftGoalLineBody = [ChipmunkBody bodyWithMass:0.0f andMoment:lineMoment];
+    _rightGoalLineBody = [ChipmunkBody bodyWithMass:0.0f andMoment:lineMoment];
+    
     _leftNetLeftPoleBody.position = cpv(0, screen.size.height/2.0f + 130.0f); // I am so sorry for these hardcoded values.
     _leftNetRightPoleBody.position = cpv(0, screen.size.height/2.0f - 150.0f);
     _rightNetLeftPoleBody.position = cpv(screen.size.width-100.0f, screen.size.height/2.0f + 130.0f);
     _rightNetRightPoleBody.position = cpv(screen.size.width-100.0f, screen.size.height/2.0f - 150.0f);
+
+    _leftGoalLineBody.position = cpv(180.0f, screen.size.height/2.0f + 110.0f);
+    _rightGoalLineBody.position = cpv(screen.size.width - 200, screen.size.height + 110.0f);
     
     _leftNetLeftPoleShape = [[ChipmunkPolyShape alloc] initBoxWithBody:_leftNetLeftPoleBody width:200 height:20 radius:0.0f];
     _leftNetRightPoleShape = [[ChipmunkPolyShape alloc] initBoxWithBody:_leftNetRightPoleBody width:200 height:20 radius:0.0f];
     _rightNetLeftPoleShape = [[ChipmunkPolyShape alloc] initBoxWithBody:_rightNetLeftPoleBody width:200 height:20 radius:0.0f];
     _rightNetRightPoleShape = [[ChipmunkPolyShape alloc] initBoxWithBody:_rightNetRightPoleBody width:200 height:20 radius:0.0f];
+    _leftGoalLineShape = [[ChipmunkPolyShape alloc] initBoxWithBody:_leftGoalLineBody width:20 height:260 radius:0.0f];
+    _rightGoalLineShape = [[ChipmunkPolyShape alloc] initBoxWithBody:_rightGoalLineBody width:20 height:260 radius:0.0f];
+    
     
     _leftNetLeftPoleShape.friction = 0.2f;
     _leftNetLeftPoleShape.elasticity = 1.0f;
@@ -217,6 +234,13 @@ static NSString *actorType = @"ballType";
     _rightNetRightPoleShape.elasticity = 1.0f;
     _rightNetRightPoleShape.userData = netRightView;
     
+    _leftGoalLineShape.friction = 0.0f;
+    _leftGoalLineShape.elasticity = 0.0f;
+    _leftGoalLineShape.userData = netLeftView;
+    _rightGoalLineShape.friction = 0.0f;
+    _rightGoalLineShape.elasticity = 0.0f;
+    _rightGoalLineShape.userData = netRightView;
+    
     
     [_space add:_ballShape];
     [_space add:_ballBody];
@@ -231,10 +255,76 @@ static NSString *actorType = @"ballType";
     [_space add:_rightNetLeftPoleBody];
     [_space add:_rightNetRightPoleShape];
     [_space add:_rightNetRightPoleBody];
+    [_space add:_leftGoalLineShape];
+    [_space add:_leftGoalLineBody];
+    [_space add:_rightGoalLineShape];
+    [_space add:_rightGoalLineBody];
+    
+    [_space addCollisionHandler:self typeA:ballType typeB:leftGoalLineType begin:@selector(ballTouchesGoalLine:inSpace:) preSolve:NULL postSolve:NULL separate:@selector(ballCrossedLeftGoalAccordingToArbiter:inSpace:)];
+    [_space addCollisionHandler:self typeA:ballType typeB:rightGoalLineType begin:@selector(ballTouchesGoalLine:inSpace:) preSolve:NULL postSolve:NULL separate:@selector(ballCrossedRightGoalAccordingToArbiter:inSpace:)];
     
     //_space.gravity = cpvmult(cpv(0, 1), 300.0f);
     
 }
+
+- (void)ballTouchesGoalLine:(cpArbiter *)arbiter inSpace:(ChipmunkSpace *)space
+{
+    xVelocityOnGoal = _ballBody.velocity.x;
+}
+- (void)ballCrossedLeftGoalAccordingToArbiter:(cpArbiter *)arbiter inSpace:(ChipmunkSpace *)space
+{
+    if (_ballBody.velocity.x * xVelocityOnGoal >= 0.0f) // they are the same sign, this was no mere bounce
+    {
+        [self rightSideScored];
+    }
+    xVelocityOnGoal = 0.0f;
+}
+
+- (void)ballCrossedRightGoalAccordingToArbiter:(cpArbiter *)arbiter inSpace:(ChipmunkSpace *)space
+{
+    if (_ballBody.velocity.x * xVelocityOnGoal >= 0.0f) // they are the same sign, this was no mere bounce
+    {
+        [self leftSideScored];
+    }
+    xVelocityOnGoal = 0.0f;
+}
+
+- (void)leftSideScored
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _leftScore++;
+        _leftScoreLabel.text = [[NSString alloc] initWithFormat:@"%zu", _leftScore];
+        [_space remove:_ballBody];
+        [_space remove:_ballShape];
+        
+        CGRect screen = [[UIScreen mainScreen] bounds];
+        _ballBody.position = cpv(screen.size.width/2, screen.size.height/2);
+        _ballBody.velocity = cpvzero;
+        [_space add:_ballBody];
+        [_space add:_ballShape];
+        soccerballView.frame = CGRectMake(screen.size.width/2, screen.size.height/2, 50, 50);
+
+    });
+}
+
+- (void)rightSideScored
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _rightScore++;
+        _rightScoreLabel.text = [[NSString alloc] initWithFormat:@"%zu", _rightScore];
+        [_space remove:_ballBody];
+        [_space remove:_ballShape];
+        
+        CGRect screen = [[UIScreen mainScreen] bounds];
+        _ballBody.position = cpv(screen.size.width/2, screen.size.height/2);
+        _ballBody.velocity = cpvzero;
+        [_space add:_ballBody];
+        [_space add:_ballShape];
+        soccerballView.frame = CGRectMake(screen.size.width/2, screen.size.height/2, 50, 50);
+        
+    });
+}
+
 
 -(void)trackingPositionChanged:(CGPoint)point {
     _currentFirstPosition = CGPointMake(point.x * fishView.bounds.size.width, (point.y * fishView.bounds.size.height) + fishView.frame.origin.y);
