@@ -19,7 +19,7 @@ typedef enum { PASSTHROUGH_VIDEO, SIMPLE_THRESHOLDING, POSITION_THRESHOLDING, OB
 
 @protocol ColorTrackingObserver <NSObject>
 
-- (void)trackingPositionChanged:(CGPoint)point inFrame:(CGRect)frame;
+- (void)trackingPositionChanged:(CGPoint)point;
 
 @end
 

@@ -1,0 +1,13 @@
+Release process:
+* Review diffs and write changelog
+* Make sure Objective-Chipmunk and FFI API is up to date
+* Make sure docs are up to date.
+* Make sure MSVC projects are up to date.
+* Make a new release tag
+* Make a release announcement to forums that seem to care:
+	* chipmunk
+	* cocos2d
+	* idg
+	* tigsource
+	* toucharcade
+	* gamedev

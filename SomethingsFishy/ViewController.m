@@ -8,16 +8,34 @@
 
 #import "ViewController.h"
 #import "ColorTrackingGLView.h"
+#import "ObjectiveChipmunk.h"
+#import "ChipmunkHastySpace.h"
 
-@interface ViewController () {
+@interface ViewController () <ColorTrackingObserver> {
     ColorTrackingGLView *fishView;
     UIImage *seabed;
     CALayer *fishLayer;
-    MCParallaxLayer *seabedLayer;
     CADisplayLink *displayLink;
+    UIImageView *soccerballView;
+    
+    ChipmunkSpace *_space;
+    
+    ChipmunkCircleShape *_ballShape;
+    ChipmunkBody *_ballBody;
+    
+    ChipmunkCircleShape *_fishShape;
+    ChipmunkBody *_fishBody;
+    
+    CGPoint _lastFishPosition;
+    CGPoint _currentFirstPosition;
+    CGFloat _currentSpeed;
 }
 
 @end
+
+static NSString *borderType = @"borderType";
+
+static NSString *actorType = @"ballType";
 
 @implementation ViewController
 
@@ -26,41 +44,6 @@
     [super viewDidAppear:animated];
     
     [self play];
-
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    CGRect screen = [[UIScreen mainScreen] bounds];
-    
-    CGFloat height = screen.size.height;
-    CGFloat width = screen.size.width;
-    height = (720.0f/1280.0f)*width;
-    
-    CGFloat margin = (screen.size.height - height)/2;
-
-    
-    [CATransaction begin];
-    [CATransaction setDisableActions:YES];
-    
-    seabed = [UIImage imageNamed:@"Sea-Bed"];
-    self.view.opaque = NO;
-    
-    fishLayer = fishView.layer;
-    fishLayer.contentsRect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    
-    seabedLayer = [[MCParallaxLayer alloc] initWithBounds:CGRectMake(0, 0, screen.size.width, seabed.size.height/self.view.contentScaleFactor)
-                                                 tileSize:CGSizeMake(seabed.size.width/self.view.contentScaleFactor, seabed.size.height/self.view.contentScaleFactor)
-                                                 provider:self
-                                             isHorizontal:YES
-                                                   opaque:NO
-                                                      tag:1];
-    seabedLayer.position = CGPointMake(0, (screen.size.height-seabed.size.height/self.view.contentScaleFactor));
-    seabedLayer.scrollMultiplier = 1.5f;
-    [fishLayer addSublayer:seabedLayer];
-    
-    [CATransaction commit];
 
 }
 
@@ -87,24 +70,20 @@
 
 - (void)update:(CADisplayLink*)sender;
 {
-    static const float floorSpeed = 90.0f; // pts/sec
-    static const CFTimeInterval maxElapsedTime = 1 / 20.0f;
-    static CFTimeInterval lastTimestamp = 0;
+    cpFloat dt = displayLink.duration*displayLink.frameInterval;
     
-    const CFTimeInterval currentTime = CACurrentMediaTime();
-    CFTimeInterval elapsedTime = currentTime - lastTimestamp;
-    lastTimestamp = currentTime;
+    _fishBody.velocity = cpvmult(cpvsub(cpv(_currentFirstPosition.x, _currentFirstPosition.y), _fishBody.position), 1.0f/dt);
+    [_space step:dt];
+    soccerballView.center = CGPointMake(_ballBody.position.x, _ballBody.position.y);
+    _lastFishPosition = _currentFirstPosition;
+
+    //[_fishBody applyForce:cpv(1,1) atWorldPoint:cpv(_currentFirstPosition.x, _currentFirstPosition.y)];
+
+    [_space reindexShape:_fishShape];
     
-    if (elapsedTime > maxElapsedTime)
-        elapsedTime = maxElapsedTime;
+    NSLog(@"f %f %f", _fishBody.position.x, _fishBody.position.y);
+    NSLog(@"b %f %f", _ballBody.position.x, _ballBody.position.y);
     
-    [CATransaction begin];
-    [CATransaction setDisableActions:YES];
-    
-    const CGPoint diff = CGPointMake(floorSpeed*elapsedTime, 0);
-    [seabedLayer scrollTiles:diff];
-        
-    [CATransaction commit];
 }
 
 
@@ -117,8 +96,6 @@
 - (void)loadView {
     CGRect screen = [[UIScreen mainScreen] bounds];
     
-    
-    
     self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     CGFloat height = screen.size.height;
     CGFloat width = screen.size.width;
@@ -128,32 +105,53 @@
     fishView = [[ColorTrackingGLView alloc] initWithFrame:CGRectMake(0,margin,width,height)];
     fishView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight;
     
-//    UIImageView *seaBed = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Sea-Bed"]];
-    
-//    [seaBed setFrame:CGRectMake(0, (screen.size.height-(margin+10)), screen.size.width, margin+10)];
-    
+    [fishView addTrackingObserver:self];
     [[self view] addSubview:fishView];
-//    [[self view] addSubview:seaBed];
     
-//    UIView *seabedBackside = [seaBed copy];
-//    [seabedBackside setFrame:CGRectMake(screen.size.width, (screen.size.height-(margin+10)), screen.size.width, margin+10)];
+    
+    soccerballView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"soccerball"]];
+    
+    soccerballView.frame = CGRectMake(200, 200, 100, 100);
+    [[self view] addSubview:soccerballView];
+    
+    _space = [[ChipmunkHastySpace alloc] init];
+    _space.damping = 0.7;
+    [_space addBounds:cpBBNew(screen.origin.x, screen.origin.y+margin, screen.size.width, screen.size.height-margin) thickness:2000.0f elasticity:1.0f friction:1.0f filter:CP_SHAPE_FILTER_ALL collisionType:borderType];
+    
+    cpFloat moment = cpMomentForCircle(1.0f, 0, 50, cpvzero);
+    
+    _ballBody = [ChipmunkBody bodyWithMass:1.0f andMoment:moment];
+    _ballBody.position = cpv(200, 200);
+    
+    _ballShape = [[ChipmunkCircleShape alloc] initWithBody:_ballBody radius:50 offset:cpvzero];
+    _ballShape.friction = 0.2f;
+    _ballShape.elasticity = 1.0f;
+    _ballShape.userData = soccerballView;
+    
+    _fishBody = [[ChipmunkBody alloc] initWithMass:1.0f andMoment:moment];
+    //_fishBody.type = CP_BODY_TYPE_STATIC;
+    
+    _fishShape = [[ChipmunkCircleShape alloc] initWithBody:_fishBody radius:50 offset:cpvzero];
+    _fishShape.elasticity = 0.0f;
+    _fishShape.friction = 1.0f;
+
+    
+    [_space add:_ballShape];
+    [_space add:_ballBody];
+    [_space add:_fishShape];
+    [_space add:_fishBody];
+
+    
+    //_space.gravity = cpvmult(cpv(0, 1), 300.0f);
     
 }
 
-#pragma mark - ParallaxLayerProvider
-
-- (CGImageRef)atlasFor:(MCParallaxLayer *)sender
-{
-    if (sender.tag == 1)
-    {
-        return seabed.CGImage;
-    }
-    return nil;
+-(void)trackingPositionChanged:(CGPoint)point {
+    _currentFirstPosition = CGPointMake(point.x * fishView.bounds.size.width, (point.y * fishView.bounds.size.height) + fishView.frame.origin.y);
+    
+    _currentSpeed = hypotf(_lastFishPosition.x - _currentFirstPosition.x, _lastFishPosition.y - _currentFirstPosition.y);
+    
 }
 
-- (CGRect)tileAt:(TileCoords)pos for:(MCParallaxLayer *)sender
-{
-    return CGRectMake(0.0f, 0.0f, seabed.size.width/self.view.contentScaleFactor, seabed.size.height/self.view.contentScaleFactor);
-}
 
 @end

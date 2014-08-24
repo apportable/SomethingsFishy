@@ -1,0 +1,16 @@
+build
+DerivedData
+xcuserdata
+xcshareddata
+*.pbxuser
+*.perspectivev3
+.DS_Store
+ChipmunkPro-iPhone
+ChipmunkPro-iPhone-Trial
+ChipmunkPro-Mac
+ChipmunkPro-Mac-Trial
+ObjectiveChipmunk-iPhone
+ObjectiveChipmunk-Mac
+ChipmunkPro-Doxygen-Reference
+Tarballs
+API-Reference

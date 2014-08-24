@@ -16,7 +16,7 @@
 #pragma mark -
 #pragma mark Initialization and teardown
 
-- (id)init; 
+- (id)init
 {
 	if (!(self = [super init]))
 		return nil;

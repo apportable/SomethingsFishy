@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BC88B3F319A98B6700868C1A /* MCParallaxLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BC88B3F219A98B6700868C1A /* MCParallaxLayer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D9AC900C19A91E63003E99EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AC900B19A91E63003E99EC /* main.m */; };
 		D9AC900F19A91E63003E99EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AC900E19A91E63003E99EC /* AppDelegate.m */; };
 		D9AC901219A91E63003E99EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AC901119A91E63003E99EC /* ViewController.m */; };
@@ -42,6 +41,8 @@
 		D9AC908F19A96750003E99EC /* seaweed-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC908019A96750003E99EC /* seaweed-2.png */; };
 		D9AC909019A96750003E99EC /* seaweed-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC908119A96750003E99EC /* seaweed-1.png */; };
 		D9AC909119A96750003E99EC /* Bk-Gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC908219A96750003E99EC /* Bk-Gradient.png */; };
+		D9AC90AD19A9CC0A003E99EC /* soccerball.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC90AC19A9CC0A003E99EC /* soccerball.png */; };
+		D9AC90C019A9CFCC003E99EC /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AC90B719A9CFA8003E99EC /* libChipmunkPro-iPhone.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,11 +53,44 @@
 			remoteGlobalIDString = D9AC900519A91E63003E99EC;
 			remoteInfo = SomethingsFishy;
 		};
+		D9AC90B619A9CFA8003E99EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9AC90AE19A9CFA8003E99EC /* ChipmunkPro.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D33229E91469B1E200C9F85A;
+			remoteInfo = "ChipmunkPro-iPhone";
+		};
+		D9AC90B819A9CFA8003E99EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9AC90AE19A9CFA8003E99EC /* ChipmunkPro.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D306E12B147190B7008E3C29;
+			remoteInfo = "Benchmark-iPhone";
+		};
+		D9AC90BA19A9CFA8003E99EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9AC90AE19A9CFA8003E99EC /* ChipmunkPro.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D323C799189184000074008E;
+			remoteInfo = "ChipmunkPro-iPhone Tests";
+		};
+		D9AC90BC19A9CFA8003E99EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9AC90AE19A9CFA8003E99EC /* ChipmunkPro.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D3121D1218919F6200856016;
+			remoteInfo = ChipmunkPro;
+		};
+		D9AC90BE19A9CFC3003E99EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9AC90AE19A9CFA8003E99EC /* ChipmunkPro.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D33229E81469B1E200C9F85A;
+			remoteInfo = "ChipmunkPro-iPhone";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BC88B3F119A98B6700868C1A /* MCParallaxLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCParallaxLayer.h; sourceTree = "<group>"; };
-		BC88B3F219A98B6700868C1A /* MCParallaxLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCParallaxLayer.m; sourceTree = "<group>"; };
 		D9AC900619A91E63003E99EC /* SomethingsFishy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SomethingsFishy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AC900A19A91E63003E99EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9AC900B19A91E63003E99EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -99,6 +133,8 @@
 		D9AC908019A96750003E99EC /* seaweed-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seaweed-2.png"; sourceTree = "<group>"; };
 		D9AC908119A96750003E99EC /* seaweed-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seaweed-1.png"; sourceTree = "<group>"; };
 		D9AC908219A96750003E99EC /* Bk-Gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bk-Gradient.png"; sourceTree = "<group>"; };
+		D9AC90AC19A9CC0A003E99EC /* soccerball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soccerball.png; sourceTree = "<group>"; };
+		D9AC90AE19A9CFA8003E99EC /* ChipmunkPro.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ChipmunkPro.xcodeproj; path = ChipmunkPro/ChipmunkPro.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9AC90C019A9CFCC003E99EC /* libChipmunkPro-iPhone.a in Frameworks */,
 				D9AC907319A956A3003E99EC /* Accelerate.framework in Frameworks */,
 				D9AC907119A9379A003E99EC /* AVFoundation.framework in Frameworks */,
 				D9AC906F19A93792003E99EC /* CoreMedia.framework in Frameworks */,
@@ -156,8 +193,6 @@
 				D9AC906B19A93787003E99EC /* ColorTrackingCamera.h */,
 				D9AC906C19A93787003E99EC /* ColorTrackingCamera.m */,
 				D9AC901319A91E63003E99EC /* Main.storyboard */,
-				BC88B3F119A98B6700868C1A /* MCParallaxLayer.h */,
-				BC88B3F219A98B6700868C1A /* MCParallaxLayer.m */,
 				D9AC901619A91E63003E99EC /* Images.xcassets */,
 				D9AC900919A91E63003E99EC /* Supporting Files */,
 			);
@@ -167,6 +202,7 @@
 		D9AC900919A91E63003E99EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D9AC90AC19A9CC0A003E99EC /* soccerball.png */,
 				D9AC907419A96750003E99EC /* clam-3.png */,
 				D9AC907519A96750003E99EC /* Clam-2.png */,
 				D9AC907619A96750003E99EC /* clam-1.png */,
@@ -221,6 +257,7 @@
 		D9AC906819A93606003E99EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9AC90AE19A9CFA8003E99EC /* ChipmunkPro.xcodeproj */,
 				D9AC907219A956A3003E99EC /* Accelerate.framework */,
 				D9AC907019A9379A003E99EC /* AVFoundation.framework */,
 				D9AC906E19A93792003E99EC /* CoreMedia.framework */,
@@ -228,6 +265,17 @@
 				D9AC906619A935F2003E99EC /* OpenGLES.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D9AC90AF19A9CFA8003E99EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC90B719A9CFA8003E99EC /* libChipmunkPro-iPhone.a */,
+				D9AC90B919A9CFA8003E99EC /* Benchmark-iPhone.app */,
+				D9AC90BB19A9CFA8003E99EC /* ChipmunkPro-iPhone Tests.xctest */,
+				D9AC90BD19A9CFA8003E99EC /* libChipmunkPro.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +292,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D9AC90BF19A9CFC3003E99EC /* PBXTargetDependency */,
 			);
 			name = SomethingsFishy;
 			productName = SomethingsFishy;
@@ -298,6 +347,12 @@
 			mainGroup = D9AC8FFD19A91E63003E99EC;
 			productRefGroup = D9AC900719A91E63003E99EC /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D9AC90AF19A9CFA8003E99EC /* Products */;
+					ProjectRef = D9AC90AE19A9CFA8003E99EC /* ChipmunkPro.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D9AC900519A91E63003E99EC /* SomethingsFishy */,
@@ -305,6 +360,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D9AC90B719A9CFA8003E99EC /* libChipmunkPro-iPhone.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libChipmunkPro-iPhone.a";
+			remoteRef = D9AC90B619A9CFA8003E99EC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D9AC90B919A9CFA8003E99EC /* Benchmark-iPhone.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Benchmark-iPhone.app";
+			remoteRef = D9AC90B819A9CFA8003E99EC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D9AC90BB19A9CFA8003E99EC /* ChipmunkPro-iPhone Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ChipmunkPro-iPhone Tests.xctest";
+			remoteRef = D9AC90BA19A9CFA8003E99EC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D9AC90BD19A9CFA8003E99EC /* libChipmunkPro.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libChipmunkPro.a;
+			remoteRef = D9AC90BC19A9CFA8003E99EC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D9AC900419A91E63003E99EC /* Resources */ = {
@@ -332,6 +418,7 @@
 				D9AC908A19A96750003E99EC /* Plant-2.png in Resources */,
 				D9AC906219A93529003E99EC /* ThresholdShader.vsh in Resources */,
 				D9AC909119A96750003E99EC /* Bk-Gradient.png in Resources */,
+				D9AC90AD19A9CC0A003E99EC /* soccerball.png in Resources */,
 				D9AC908519A96750003E99EC /* clam-1.png in Resources */,
 				D9AC906019A93529003E99EC /* PositionShader.vsh in Resources */,
 			);
@@ -353,7 +440,6 @@
 			files = (
 				D9AC906519A93587003E99EC /* ColorTrackingGLView.m in Sources */,
 				D9AC901219A91E63003E99EC /* ViewController.m in Sources */,
-				BC88B3F319A98B6700868C1A /* MCParallaxLayer.m in Sources */,
 				D9AC900F19A91E63003E99EC /* AppDelegate.m in Sources */,
 				D9AC906D19A93787003E99EC /* ColorTrackingCamera.m in Sources */,
 				D9AC900C19A91E63003E99EC /* main.m in Sources */,
@@ -375,6 +461,11 @@
 			isa = PBXTargetDependency;
 			target = D9AC900519A91E63003E99EC /* SomethingsFishy */;
 			targetProxy = D9AC901D19A91E64003E99EC /* PBXContainerItemProxy */;
+		};
+		D9AC90BF19A9CFC3003E99EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ChipmunkPro-iPhone";
+			targetProxy = D9AC90BE19A9CFC3003E99EC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -475,8 +566,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = SomethingsFishy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ChipmunkPro/Chipmunk/xcode/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ChipmunkPro/Chipmunk/include $(SRCROOT)/ChipmunkPro/Chipmunk/objectivec/include/ObjectiveChipmunk $(SRCROOT)/ChipmunkPro/HastySpace $(SRCROOT)/ChipmunkPro/AutoGeometry $(SRCROOT)/ChipmunkPro/Chipmunk/objectivec/include";
 			};
 			name = Debug;
 		};
@@ -487,8 +583,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = SomethingsFishy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ChipmunkPro/Chipmunk/xcode/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ChipmunkPro/Chipmunk/include $(SRCROOT)/ChipmunkPro/Chipmunk/objectivec/include/ObjectiveChipmunk $(SRCROOT)/ChipmunkPro/HastySpace $(SRCROOT)/ChipmunkPro/AutoGeometry $(SRCROOT)/ChipmunkPro/Chipmunk/objectivec/include";
 			};
 			name = Release;
 		};

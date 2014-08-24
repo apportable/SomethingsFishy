@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MCParallaxLayer.h"
 
-@interface ViewController : UIViewController <MCParallaxLayerContentProvider>
+@interface ViewController : UIViewController 
 
 
 @end

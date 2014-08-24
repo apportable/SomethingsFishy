@@ -32,41 +32,47 @@ enum {
 
 @implementation ColorTrackingGLView {
     NSMutableArray *observers;
+    BOOL _isTracking;
+    UIToolbar *lowerToolbar;
+    UIButton *saveButton;
 }
 
 #pragma mark -
 #pragma mark Initialization and teardown
 
 // Override the class method to return the OpenGL layer, as opposed to the normal CALayer
-+ (Class) layerClass 
++ (Class) layerClass
 {
-	return [CAEAGLLayer class];
+    return [CAEAGLLayer class];
 }
 
 
-- (id)initWithFrame:(CGRect)frame 
+- (id)initWithFrame:(CGRect)frame
 {
-    if ((self = [super initWithFrame:frame])) 
-	{
+    if ((self = [super initWithFrame:frame]))
+    {
         observers = [[NSMutableArray alloc] init];
-		// Do OpenGL Core Animation layer setup
-		CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
-		
-		// Set scaling to account for Retina display	
-//		if ([self respondsToSelector:@selector(setContentScaleFactor:)])
-//		{
-//			self.contentScaleFactor = [[UIScreen mainScreen] scale];
-//		}
-		
-		eaglLayer.opaque = YES;
-		eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat, nil];		
-		context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-		
-		if (!context || ![EAGLContext setCurrentContext:context] || ![self createFramebuffers]) 
-		{
+        _isTracking = NO;
+        // Do OpenGL Core Animation layer setup
+        CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
+        
+        // Set scaling to account for Retina display
+        //		if ([self respondsToSelector:@selector(setContentScaleFactor:)])
+        //		{
+        //			self.contentScaleFactor = [[UIScreen mainScreen] scale];
+        //		}
+        
+        eaglLayer.opaque = YES;
+        eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat, nil];
+        context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+        
+        EAGLContext *currentContext  = [EAGLContext currentContext];
+        
+        if (!context || ![EAGLContext setCurrentContext:context] || ![self createFramebuffers])
+        {
             self = nil;
-			return nil;
-		}
+            return nil;
+        }
         
         NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
         
@@ -100,13 +106,21 @@ enum {
         
         NSArray *theToolbarItems = [NSArray arrayWithObjects:item, nil];
         
-        UIToolbar *lowerToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 44.0f, frame.size.width, 44.0f)];
+        lowerToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 44.0f, frame.size.width, 44.0f)];
+        NSLog(@"frame %@", NSStringFromCGRect(frame));
+        NSLog(@"%@",lowerToolbar);
         lowerToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-        lowerToolbar.tintColor = [UIColor blackColor];
+        lowerToolbar.tintColor = [UIColor clearColor];
         
         [lowerToolbar setItems:theToolbarItems];
         
         [self addSubview:lowerToolbar];
+        
+        saveButton = [[UIButton alloc] initWithFrame:CGRectMake(10,10,100,44)];
+        [saveButton setTitle:@"Save" forState:UIControlStateNormal];
+        [saveButton addTarget:self action:@selector(done:) forControlEvents:UIControlEventTouchUpInside];
+        [saveButton sizeToFit];
+        [self addSubview:saveButton];
         
         // Create the tracking dot
         trackingDot = [[CALayer alloc] init];
@@ -126,10 +140,24 @@ enum {
         camera = [[ColorTrackingCamera alloc] init];
         camera.delegate = self;
         [self cameraHasConnected];
-		
+        [EAGLContext setCurrentContext:currentContext];
         // Initialization code
     }
     return self;
+}
+
+-(void)done:(id)sender {
+    if (!_isTracking) {
+        _isTracking = YES;
+        lowerToolbar.hidden = YES;
+        [saveButton setTitle:@"Settings" forState:UIControlStateNormal];
+        [saveButton sizeToFit];
+    } else {
+        _isTracking = NO;
+        lowerToolbar.hidden = NO;
+        [saveButton setTitle:@"Save" forState:UIControlStateNormal];
+        [saveButton sizeToFit];
+    }
 }
 
 
@@ -292,10 +320,20 @@ enum {
         } else {
             trackingDot.opacity = 1;
             trackingDot.position = CGPointMake(currentTrackingLocation.x * self.bounds.size.width, currentTrackingLocation.y * self.bounds.size.height);
+            
+            for (id<ColorTrackingObserver> observer in observers) {
+                [observer trackingPositionChanged:currentTrackingLocation];
+            }
+        }
+        
+        if (_isTracking) {
+            trackingDot.opacity = 0;
         }
         
         [self setDisplayFramebuffer];
         glUseProgram(directDisplayProgram);
+        
+        
         
         // Grab the previously rendered texture and feed that into the next level of processing
         //		glActiveTexture(GL_TEXTURE0);
@@ -318,108 +356,112 @@ enum {
 #pragma mark OpenGL drawing
 
 - (GLuint)glHeight {
-    return 720/2;
+    return 640;
 }
 
 - (GLuint)glWidth {
-    return 1280/2;
+    return 480;
 }
 
 
 - (BOOL)createFramebuffers
-{	
-	glEnable(GL_TEXTURE_2D);
-	glDisable(GL_DEPTH_TEST);
-
-	// Onscreen framebuffer object
-	glGenFramebuffers(1, &viewFramebuffer);
-	glBindFramebuffer(GL_FRAMEBUFFER, viewFramebuffer);
-	
-	glGenRenderbuffers(1, &viewRenderbuffer);
-	glBindRenderbuffer(GL_RENDERBUFFER, viewRenderbuffer);
-	
-	[context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer*)self.layer];
-	
-	glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &backingWidth);
-	glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &backingHeight);
-	NSLog(@"Backing width: %d, height: %d", backingWidth, backingHeight);
-	
-	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, viewRenderbuffer);
-	
-	if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE) 
-	{
-		NSLog(@"Failure with framebuffer generation");
-		return NO;
-	}
-	
-	// Offscreen position framebuffer object
-	glGenFramebuffers(1, &positionFramebuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER, positionFramebuffer);
-
-	glGenRenderbuffers(1, &positionRenderbuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, positionRenderbuffer);
-	
-    glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA8_OES, (GLuint)self.glWidth,  (GLuint)self.glHeight);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, positionRenderbuffer);	
+{
+    glEnable(GL_TEXTURE_2D);
+    glDisable(GL_DEPTH_TEST);
     
-
-	// Offscreen position framebuffer texture target
-	glGenTextures(1, &positionRenderTexture);
+    // Onscreen framebuffer object
+    glGenFramebuffers(1, &viewFramebuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, viewFramebuffer);
+    
+    glGenRenderbuffers(1, &viewRenderbuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, viewRenderbuffer);
+    
+    [context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer*)self.layer];
+    
+    glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &backingWidth);
+    glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &backingHeight);
+    NSLog(@"Backing width: %d, height: %d", backingWidth, backingHeight);
+    
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, viewRenderbuffer);
+    
+    if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+    {
+        NSLog(@"Failure with framebuffer generation");
+        return NO;
+    }
+    
+    // Offscreen position framebuffer object
+    glGenFramebuffers(1, &positionFramebuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, positionFramebuffer);
+    
+    glGenRenderbuffers(1, &positionRenderbuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, positionRenderbuffer);
+    
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA8_OES, (GLuint)self.glWidth,  (GLuint)self.glHeight);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, positionRenderbuffer);
+    
+    
+    // Offscreen position framebuffer texture target
+    glGenTextures(1, &positionRenderTexture);
     glBindTexture(GL_TEXTURE_2D, positionRenderTexture);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-	glHint(GL_GENERATE_MIPMAP_HINT, GL_NICEST);
-//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-	//GL_NEAREST_MIPMAP_NEAREST
-
+    glHint(GL_GENERATE_MIPMAP_HINT, GL_NICEST);
+    //	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    //GL_NEAREST_MIPMAP_NEAREST
+    
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLuint)self.glWidth, (GLuint)self.glHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
-//    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, FBO_WIDTH, FBO_HEIGHT, 0, GL_RGBA, GL_FLOAT, 0);
-
-	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, positionRenderTexture, 0);
-//	NSLog(@"GL error15: %d", glGetError());
-	
-	
-	
-	
-	GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-    if (status != GL_FRAMEBUFFER_COMPLETE) 
-	{
-		NSLog(@"Incomplete FBO: %d", status);
+    //    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, FBO_WIDTH, FBO_HEIGHT, 0, GL_RGBA, GL_FLOAT, 0);
+    
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, positionRenderTexture, 0);
+    //	NSLog(@"GL error15: %d", glGetError());
+    
+    
+    
+    
+    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    if (status != GL_FRAMEBUFFER_COMPLETE)
+    {
+        NSLog(@"Incomplete FBO: %d", status);
         exit(1);
     }
-	
-	
-	
-	return YES;
+    
+    
+    
+    return YES;
+}
+
+- (BOOL)isTracking {
+    return _isTracking;
 }
 
 - (void)destroyFramebuffer;
-{	
-	if (viewFramebuffer)
-	{
-		glDeleteFramebuffers(1, &viewFramebuffer);
-		viewFramebuffer = 0;
-	}
-	
-	if (viewRenderbuffer)
-	{
-		glDeleteRenderbuffers(1, &viewRenderbuffer);
-		viewRenderbuffer = 0;
-	}
+{
+    if (viewFramebuffer)
+    {
+        glDeleteFramebuffers(1, &viewFramebuffer);
+        viewFramebuffer = 0;
+    }
+    
+    if (viewRenderbuffer)
+    {
+        glDeleteRenderbuffers(1, &viewRenderbuffer);
+        viewRenderbuffer = 0;
+    }
 }
 
 - (void)setDisplayFramebuffer;
 {
     if (context)
     {
-//        [EAGLContext setCurrentContext:context];
+        //        [EAGLContext setCurrentContext:context];
         
         if (!viewFramebuffer)
-		{
+        {
             [self createFramebuffers];
-		}
+        }
         
         glBindFramebuffer(GL_FRAMEBUFFER, viewFramebuffer);
         
@@ -431,12 +473,12 @@ enum {
 {
     if (context)
     {
-		//        [EAGLContext setCurrentContext:context];
+        //        [EAGLContext setCurrentContext:context];
         
         if (!positionFramebuffer)
-		{
+        {
             [self createFramebuffers];
-		}
+        }
         
         glBindFramebuffer(GL_FRAMEBUFFER, positionFramebuffer);
         
@@ -450,7 +492,7 @@ enum {
     
     if (context)
     {
-  //      [EAGLContext setCurrentContext:context];
+        //      [EAGLContext setCurrentContext:context];
         
         glBindRenderbuffer(GL_RENDERBUFFER, viewRenderbuffer);
         
@@ -598,6 +640,8 @@ enum {
 
 - (void)processNewCameraFrame:(CVImageBufferRef)cameraFrame;
 {
+    EAGLContext *currentContext  = [EAGLContext currentContext];
+    [EAGLContext setCurrentContext:context];
     CVPixelBufferLockBaseAddress(cameraFrame, 0);
     size_t bufferHeight = CVPixelBufferGetHeight(cameraFrame);
     size_t bufferWidth = CVPixelBufferGetWidth(cameraFrame);
@@ -667,6 +711,8 @@ enum {
     glDeleteTextures(1, &videoFrameTexture);
     
     CVPixelBufferUnlockBaseAddress(cameraFrame, 0);
+    [EAGLContext setCurrentContext:currentContext];
+    
 }
 
 
@@ -688,11 +734,11 @@ enum {
     [[NSUserDefaults standardUserDefaults] setFloat:thresholdSensitivity forKey:@"thresholdSensitivity"];
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event 
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
 }
 
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event 
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
 }
 
@@ -705,3 +751,5 @@ enum {
 }
 
 @end
+
+

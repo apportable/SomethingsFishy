@@ -5,11 +5,15 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>11474B10-A7A6-4FA3-98F4-A9AEF8D5FC13</string>
+	<string>72F029F7-19DB-476C-8C37-046A187E146D</string>
 	<key>IDESourceControlProjectName</key>
 	<string>SomethingsFishy</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>16BD3B97CD4D4474EB3FCD8DED4F811215052AC3</key>
+		<string>http://chipmunk-physics.net/release/chipmunkPro/ChipmunkPro.git</string>
+		<key>999D2B244F4BEADDDD09CD5EE2574031B24F399A</key>
+		<string>git://github.com/slembcke/Chipmunk-Physics.git</string>
 		<key>DEA2B98F68FEC1E9684109BA1872FDEEAB6ABBF1</key>
 		<string>github.com:apportable/SomethingsFishy.git</string>
 	</dict>
@@ -17,6 +21,10 @@
 	<string>SomethingsFishy.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>16BD3B97CD4D4474EB3FCD8DED4F811215052AC3</key>
+		<string>../..ChipmunkPro/</string>
+		<key>999D2B244F4BEADDDD09CD5EE2574031B24F399A</key>
+		<string>../..ChipmunkPro/Chipmunk/</string>
 		<key>DEA2B98F68FEC1E9684109BA1872FDEEAB6ABBF1</key>
 		<string>../..</string>
 	</dict>
@@ -28,6 +36,22 @@
 	<string>DEA2B98F68FEC1E9684109BA1872FDEEAB6ABBF1</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>999D2B244F4BEADDDD09CD5EE2574031B24F399A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Chipmunk</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>16BD3B97CD4D4474EB3FCD8DED4F811215052AC3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ChipmunkPro</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

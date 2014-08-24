@@ -1,0 +1,1132 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D306E137147190B7008E3C29 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D306E136147190B7008E3C29 /* main.m */; };
+		D306E142147192A0008E3C29 /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D33229E91469B1E200C9F85A /* libChipmunkPro-iPhone.a */; };
+		D306E14614719350008E3C29 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D306E14514719350008E3C29 /* ImageIO.framework */; };
+		D306E14714719362008E3C29 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EE1DBF125CBF0C0080BCC4 /* CoreGraphics.framework */; };
+		D306E1481471936D008E3C29 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		D3121D0218919F6200856016 /* cpHastySpace.c in Sources */ = {isa = PBXBuildFile; fileRef = D306E1531471992A008E3C29 /* cpHastySpace.c */; };
+		D3121D0318919F6200856016 /* ChipmunkHastySpace.m in Sources */ = {isa = PBXBuildFile; fileRef = D3BABA9B1471ABF60009C197 /* ChipmunkHastySpace.m */; };
+		D3121D0418919F6200856016 /* cpMarch.c in Sources */ = {isa = PBXBuildFile; fileRef = D383F9771469AF2E00EA7AD7 /* cpMarch.c */; };
+		D3121D0518919F6200856016 /* cpPolyline.c in Sources */ = {isa = PBXBuildFile; fileRef = D383F9791469AF2E00EA7AD7 /* cpPolyline.c */; };
+		D3121D0618919F6200856016 /* ChipmunkAutoGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = D383F9701469AF2E00EA7AD7 /* ChipmunkAutoGeometry.m */; };
+		D3121D0718919F6200856016 /* ChipmunkImageSampler.m in Sources */ = {isa = PBXBuildFile; fileRef = D383F9721469AF2E00EA7AD7 /* ChipmunkImageSampler.m */; };
+		D3121D0818919F6200856016 /* ChipmunkPointCloudSampler.m in Sources */ = {isa = PBXBuildFile; fileRef = D383F9741469AF2E00EA7AD7 /* ChipmunkPointCloudSampler.m */; };
+		D3121D0918919F6200856016 /* ChipmunkTileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D383F9761469AF2E00EA7AD7 /* ChipmunkTileCache.m */; };
+		D3121D1918919FCD00856016 /* libObjectiveChipmunk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36682F3189171F900F23550 /* libObjectiveChipmunk.a */; };
+		D323C79A189184000074008E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36682C8189171D000F23550 /* XCTest.framework */; };
+		D323C79B189184000074008E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		D323C79C189184000074008E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3A81F2012B35D7700514888 /* UIKit.framework */; };
+		D323C7B31891844C0074008E /* ChipmunkPro-iPhone Tests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D323C7AE1891844C0074008E /* ChipmunkPro-iPhone Tests-Info.plist */; };
+		D323C7B8189184D30074008E /* ConvexTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D323C7B6189184D30074008E /* ConvexTest.m */; };
+		D323C7B9189184D30074008E /* MiscTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D323C7B7189184D30074008E /* MiscTest.m */; };
+		D323C7BA189187BC0074008E /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D33229E91469B1E200C9F85A /* libChipmunkPro-iPhone.a */; };
+		D323C7BB189187C00074008E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D306E14514719350008E3C29 /* ImageIO.framework */; };
+		D323C7CC1891957D0074008E /* TestImageLA.png in Resources */ = {isa = PBXBuildFile; fileRef = D323C7CA189195760074008E /* TestImageLA.png */; };
+		D323C7CD1891957D0074008E /* TestImageRGB.png in Resources */ = {isa = PBXBuildFile; fileRef = D323C7CB189195760074008E /* TestImageRGB.png */; };
+		D3284F2D1477960D00C7649B /* cpHastySpace.c in Sources */ = {isa = PBXBuildFile; fileRef = D306E1531471992A008E3C29 /* cpHastySpace.c */; };
+		D3284F2E1477960D00C7649B /* ChipmunkHastySpace.m in Sources */ = {isa = PBXBuildFile; fileRef = D3BABA9B1471ABF60009C197 /* ChipmunkHastySpace.m */; };
+		D33229F91469B21D00C9F85A /* ChipmunkAutoGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = D383F9701469AF2E00EA7AD7 /* ChipmunkAutoGeometry.m */; };
+		D33229FA1469B21D00C9F85A /* ChipmunkImageSampler.m in Sources */ = {isa = PBXBuildFile; fileRef = D383F9721469AF2E00EA7AD7 /* ChipmunkImageSampler.m */; };
+		D33229FB1469B21D00C9F85A /* ChipmunkPointCloudSampler.m in Sources */ = {isa = PBXBuildFile; fileRef = D383F9741469AF2E00EA7AD7 /* ChipmunkPointCloudSampler.m */; };
+		D33229FC1469B21D00C9F85A /* ChipmunkTileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D383F9761469AF2E00EA7AD7 /* ChipmunkTileCache.m */; };
+		D33229FD1469B22300C9F85A /* cpMarch.c in Sources */ = {isa = PBXBuildFile; fileRef = D383F9771469AF2E00EA7AD7 /* cpMarch.c */; };
+		D33229FE1469B22300C9F85A /* cpPolyline.c in Sources */ = {isa = PBXBuildFile; fileRef = D383F9791469AF2E00EA7AD7 /* cpPolyline.c */; };
+		D36682F61891722400F23550 /* libObjectiveChipmunk-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36682EF189171F900F23550 /* libObjectiveChipmunk-iPhone.a */; };
+		D36C75E5148D540000631A0D /* Bench.c in Sources */ = {isa = PBXBuildFile; fileRef = D306E14F14719665008E3C29 /* Bench.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D306E14014719295008E3C29 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D33229E81469B1E200C9F85A;
+			remoteInfo = ChipmunkPro;
+		};
+		D3121D1A18919FD600856016 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D36682DC189171F900F23550 /* Chipmunk7.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D333C5E118639A0500BBC4FF;
+			remoteInfo = ObjectiveChipmunk;
+		};
+		D323C7A6189184000074008E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D33229E81469B1E200C9F85A;
+			remoteInfo = "ChipmunkPro-iPhone";
+		};
+		D36682E6189171F900F23550 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D36682DC189171F900F23550 /* Chipmunk7.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D3E5F0490AA32FDE004E361B;
+			remoteInfo = ChipmunkDemo;
+		};
+		D36682E8189171F900F23550 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D36682DC189171F900F23550 /* Chipmunk7.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D34963BB0B56CAA300CAD239;
+			remoteInfo = ChipmunkStatic;
+		};
+		D36682EA189171F900F23550 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D36682DC189171F900F23550 /* Chipmunk7.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D3C3787A11063B1B003EF1D9;
+			remoteInfo = "ChipmunkStatic-iPhone";
+		};
+		D36682EC189171F900F23550 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D36682DC189171F900F23550 /* Chipmunk7.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D39ECD8617ED70D900319DBA;
+			remoteInfo = "Benchmark iPhone";
+		};
+		D36682EE189171F900F23550 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D36682DC189171F900F23550 /* Chipmunk7.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D309B21317EFE2EF00AA52C8;
+			remoteInfo = "ObjectiveChipmunk-iPhone";
+		};
+		D36682F0189171F900F23550 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D36682DC189171F900F23550 /* Chipmunk7.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D309B22017EFE2EF00AA52C8;
+			remoteInfo = ObjectiveChipmunkTests;
+		};
+		D36682F2189171F900F23550 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D36682DC189171F900F23550 /* Chipmunk7.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D333C5F018639A0500BBC4FF;
+			remoteInfo = ObjectiveChipmunk;
+		};
+		D36682F41891720800F23550 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D36682DC189171F900F23550 /* Chipmunk7.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D309B21217EFE2EF00AA52C8;
+			remoteInfo = "ObjectiveChipmunk-iPhone";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D306E12B147190B7008E3C29 /* Benchmark-iPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Benchmark-iPhone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D306E136147190B7008E3C29 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D306E14514719350008E3C29 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		D306E14D14719656008E3C29 /* ChipmunkDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChipmunkDemo.h; path = Chipmunk/Demo/ChipmunkDemo.h; sourceTree = SOURCE_ROOT; };
+		D306E14F14719665008E3C29 /* Bench.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Bench.c; path = Chipmunk/Demo/Bench.c; sourceTree = SOURCE_ROOT; };
+		D306E15114719891008E3C29 /* BenchmarkApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BenchmarkApp-Info.plist"; sourceTree = "<group>"; };
+		D306E1531471992A008E3C29 /* cpHastySpace.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cpHastySpace.c; sourceTree = "<group>"; };
+		D306E15514719935008E3C29 /* cpHastySpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpHastySpace.h; sourceTree = "<group>"; };
+		D3121D1218919F6200856016 /* libChipmunkPro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libChipmunkPro.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D323C799189184000074008E /* ChipmunkPro-iPhone Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ChipmunkPro-iPhone Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D323C7AE1891844C0074008E /* ChipmunkPro-iPhone Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ChipmunkPro-iPhone Tests-Info.plist"; sourceTree = "<group>"; };
+		D323C7B6189184D30074008E /* ConvexTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvexTest.m; sourceTree = "<group>"; };
+		D323C7B7189184D30074008E /* MiscTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiscTest.m; sourceTree = "<group>"; };
+		D323C7CA189195760074008E /* TestImageLA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestImageLA.png; sourceTree = "<group>"; };
+		D323C7CB189195760074008E /* TestImageRGB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestImageRGB.png; sourceTree = "<group>"; };
+		D33229E91469B1E200C9F85A /* libChipmunkPro-iPhone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libChipmunkPro-iPhone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D36682C8189171D000F23550 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D36682DC189171F900F23550 /* Chipmunk7.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Chipmunk7.xcodeproj; path = Chipmunk/xcode/Chipmunk7.xcodeproj; sourceTree = "<group>"; };
+		D383F96F1469AF2E00EA7AD7 /* ChipmunkAutoGeometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChipmunkAutoGeometry.h; sourceTree = "<group>"; };
+		D383F9701469AF2E00EA7AD7 /* ChipmunkAutoGeometry.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChipmunkAutoGeometry.m; sourceTree = "<group>"; };
+		D383F9711469AF2E00EA7AD7 /* ChipmunkImageSampler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChipmunkImageSampler.h; sourceTree = "<group>"; };
+		D383F9721469AF2E00EA7AD7 /* ChipmunkImageSampler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChipmunkImageSampler.m; sourceTree = "<group>"; };
+		D383F9731469AF2E00EA7AD7 /* ChipmunkPointCloudSampler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChipmunkPointCloudSampler.h; sourceTree = "<group>"; };
+		D383F9741469AF2E00EA7AD7 /* ChipmunkPointCloudSampler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChipmunkPointCloudSampler.m; sourceTree = "<group>"; };
+		D383F9751469AF2E00EA7AD7 /* ChipmunkTileCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChipmunkTileCache.h; sourceTree = "<group>"; };
+		D383F9761469AF2E00EA7AD7 /* ChipmunkTileCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChipmunkTileCache.m; sourceTree = "<group>"; };
+		D383F9771469AF2E00EA7AD7 /* cpMarch.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpMarch.c; sourceTree = "<group>"; };
+		D383F9781469AF2E00EA7AD7 /* cpMarch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpMarch.h; sourceTree = "<group>"; };
+		D383F9791469AF2E00EA7AD7 /* cpPolyline.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpPolyline.c; sourceTree = "<group>"; };
+		D383F97A1469AF2E00EA7AD7 /* cpPolyline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpPolyline.h; sourceTree = "<group>"; };
+		D3A81F2012B35D7700514888 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D3BABA9A1471ABF60009C197 /* ChipmunkHastySpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChipmunkHastySpace.h; sourceTree = "<group>"; };
+		D3BABA9B1471ABF60009C197 /* ChipmunkHastySpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChipmunkHastySpace.m; sourceTree = "<group>"; };
+		D3EE1DBF125CBF0C0080BCC4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D306E128147190B7008E3C29 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D306E1481471936D008E3C29 /* Foundation.framework in Frameworks */,
+				D306E14714719362008E3C29 /* CoreGraphics.framework in Frameworks */,
+				D306E14614719350008E3C29 /* ImageIO.framework in Frameworks */,
+				D306E142147192A0008E3C29 /* libChipmunkPro-iPhone.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3121D0A18919F6200856016 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3121D1918919FCD00856016 /* libObjectiveChipmunk.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D323C796189184000074008E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D323C7BB189187C00074008E /* ImageIO.framework in Frameworks */,
+				D323C7BA189187BC0074008E /* libChipmunkPro-iPhone.a in Frameworks */,
+				D323C79A189184000074008E /* XCTest.framework in Frameworks */,
+				D323C79C189184000074008E /* UIKit.framework in Frameworks */,
+				D323C79B189184000074008E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D33229E61469B1E200C9F85A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D36682F61891722400F23550 /* libObjectiveChipmunk-iPhone.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0867D691FE84028FC02AAC07 /* Objective-Chipmunk-2 */ = {
+			isa = PBXGroup;
+			children = (
+				D36682DC189171F900F23550 /* Chipmunk7.xcodeproj */,
+				D383F96E1469AF2E00EA7AD7 /* AutoGeometry */,
+				D306E15214719911008E3C29 /* HastySpace */,
+				D306E130147190B7008E3C29 /* BenchmarkApp */,
+				D323C7AD1891844C0074008E /* UnitTests */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				D33229E91469B1E200C9F85A /* libChipmunkPro-iPhone.a */,
+				D306E12B147190B7008E3C29 /* Benchmark-iPhone.app */,
+				D323C799189184000074008E /* ChipmunkPro-iPhone Tests.xctest */,
+				D3121D1218919F6200856016 /* libChipmunkPro.a */,
+			);
+			name = "Objective-Chipmunk-2";
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D306E14514719350008E3C29 /* ImageIO.framework */,
+				D3EE1DBF125CBF0C0080BCC4 /* CoreGraphics.framework */,
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+				D3A81F2012B35D7700514888 /* UIKit.framework */,
+				D36682C8189171D000F23550 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D306E130147190B7008E3C29 /* BenchmarkApp */ = {
+			isa = PBXGroup;
+			children = (
+				D306E136147190B7008E3C29 /* main.m */,
+				D306E14D14719656008E3C29 /* ChipmunkDemo.h */,
+				D306E14F14719665008E3C29 /* Bench.c */,
+				D306E15114719891008E3C29 /* BenchmarkApp-Info.plist */,
+			);
+			path = BenchmarkApp;
+			sourceTree = "<group>";
+		};
+		D306E15214719911008E3C29 /* HastySpace */ = {
+			isa = PBXGroup;
+			children = (
+				D306E15514719935008E3C29 /* cpHastySpace.h */,
+				D306E1531471992A008E3C29 /* cpHastySpace.c */,
+				D3BABA9A1471ABF60009C197 /* ChipmunkHastySpace.h */,
+				D3BABA9B1471ABF60009C197 /* ChipmunkHastySpace.m */,
+			);
+			path = HastySpace;
+			sourceTree = SOURCE_ROOT;
+		};
+		D323C7AD1891844C0074008E /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				D323C7B6189184D30074008E /* ConvexTest.m */,
+				D323C7B7189184D30074008E /* MiscTest.m */,
+				D323C7AE1891844C0074008E /* ChipmunkPro-iPhone Tests-Info.plist */,
+				D323C7CA189195760074008E /* TestImageLA.png */,
+				D323C7CB189195760074008E /* TestImageRGB.png */,
+			);
+			path = UnitTests;
+			sourceTree = "<group>";
+		};
+		D36682DD189171F900F23550 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D36682E7189171F900F23550 /* ChipmunkDemo.app */,
+				D36682E9189171F900F23550 /* libChipmunk.a */,
+				D36682EB189171F900F23550 /* libChipmunk-iPhone.a */,
+				D36682ED189171F900F23550 /* Benchmark iPhone.app */,
+				D36682EF189171F900F23550 /* libObjectiveChipmunk-iPhone.a */,
+				D36682F1189171F900F23550 /* ObjectiveChipmunkTests.xctest */,
+				D36682F3189171F900F23550 /* libObjectiveChipmunk.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D383F96E1469AF2E00EA7AD7 /* AutoGeometry */ = {
+			isa = PBXGroup;
+			children = (
+				D383F9781469AF2E00EA7AD7 /* cpMarch.h */,
+				D383F9771469AF2E00EA7AD7 /* cpMarch.c */,
+				D383F97A1469AF2E00EA7AD7 /* cpPolyline.h */,
+				D383F9791469AF2E00EA7AD7 /* cpPolyline.c */,
+				D383F96F1469AF2E00EA7AD7 /* ChipmunkAutoGeometry.h */,
+				D383F9701469AF2E00EA7AD7 /* ChipmunkAutoGeometry.m */,
+				D383F9711469AF2E00EA7AD7 /* ChipmunkImageSampler.h */,
+				D383F9721469AF2E00EA7AD7 /* ChipmunkImageSampler.m */,
+				D383F9731469AF2E00EA7AD7 /* ChipmunkPointCloudSampler.h */,
+				D383F9741469AF2E00EA7AD7 /* ChipmunkPointCloudSampler.m */,
+				D383F9751469AF2E00EA7AD7 /* ChipmunkTileCache.h */,
+				D383F9761469AF2E00EA7AD7 /* ChipmunkTileCache.m */,
+			);
+			name = AutoGeometry;
+			path = ChipmunkPro.xcodeproj/../AutoGeometry;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D3121D0C18919F6200856016 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D33229E71469B1E200C9F85A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D306E12A147190B7008E3C29 /* Benchmark-iPhone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D306E13C147190B8008E3C29 /* Build configuration list for PBXNativeTarget "Benchmark-iPhone" */;
+			buildPhases = (
+				D306E127147190B7008E3C29 /* Sources */,
+				D306E128147190B7008E3C29 /* Frameworks */,
+				D306E129147190B7008E3C29 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D306E14114719295008E3C29 /* PBXTargetDependency */,
+			);
+			name = "Benchmark-iPhone";
+			productName = BenchmarkApp;
+			productReference = D306E12B147190B7008E3C29 /* Benchmark-iPhone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D3121CFE18919F6200856016 /* ChipmunkPro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3121D0D18919F6200856016 /* Build configuration list for PBXNativeTarget "ChipmunkPro" */;
+			buildPhases = (
+				D3121D0118919F6200856016 /* Sources */,
+				D3121D0A18919F6200856016 /* Frameworks */,
+				D3121D0C18919F6200856016 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D3121D1B18919FD600856016 /* PBXTargetDependency */,
+			);
+			name = ChipmunkPro;
+			productName = ChipmunkPro;
+			productReference = D3121D1218919F6200856016 /* libChipmunkPro.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D323C798189184000074008E /* ChipmunkPro-iPhone Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D323C7A8189184000074008E /* Build configuration list for PBXNativeTarget "ChipmunkPro-iPhone Tests" */;
+			buildPhases = (
+				D323C795189184000074008E /* Sources */,
+				D323C796189184000074008E /* Frameworks */,
+				D323C797189184000074008E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D323C7A7189184000074008E /* PBXTargetDependency */,
+			);
+			name = "ChipmunkPro-iPhone Tests";
+			productName = "ChipmunkPro-iPhone Tests";
+			productReference = D323C799189184000074008E /* ChipmunkPro-iPhone Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D33229E81469B1E200C9F85A /* ChipmunkPro-iPhone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D33229F41469B1E200C9F85A /* Build configuration list for PBXNativeTarget "ChipmunkPro-iPhone" */;
+			buildPhases = (
+				D33229E51469B1E200C9F85A /* Sources */,
+				D33229E61469B1E200C9F85A /* Frameworks */,
+				D33229E71469B1E200C9F85A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D36682F51891720800F23550 /* PBXTargetDependency */,
+			);
+			name = "ChipmunkPro-iPhone";
+			productName = ChipmunkPro;
+			productReference = D33229E91469B1E200C9F85A /* libChipmunkPro-iPhone.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Howling Moon Software";
+				TargetAttributes = {
+					D323C798189184000074008E = {
+						TestTargetID = D33229E81469B1E200C9F85A;
+					};
+				};
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "ChipmunkPro" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* Objective-Chipmunk-2 */;
+			productRefGroup = 0867D691FE84028FC02AAC07 /* Objective-Chipmunk-2 */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D36682DD189171F900F23550 /* Products */;
+					ProjectRef = D36682DC189171F900F23550 /* Chipmunk7.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				D33229E81469B1E200C9F85A /* ChipmunkPro-iPhone */,
+				D306E12A147190B7008E3C29 /* Benchmark-iPhone */,
+				D323C798189184000074008E /* ChipmunkPro-iPhone Tests */,
+				D3121CFE18919F6200856016 /* ChipmunkPro */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D36682E7189171F900F23550 /* ChipmunkDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = ChipmunkDemo.app;
+			remoteRef = D36682E6189171F900F23550 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D36682E9189171F900F23550 /* libChipmunk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libChipmunk.a;
+			remoteRef = D36682E8189171F900F23550 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D36682EB189171F900F23550 /* libChipmunk-iPhone.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libChipmunk-iPhone.a";
+			remoteRef = D36682EA189171F900F23550 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D36682ED189171F900F23550 /* Benchmark iPhone.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Benchmark iPhone.app";
+			remoteRef = D36682EC189171F900F23550 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D36682EF189171F900F23550 /* libObjectiveChipmunk-iPhone.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libObjectiveChipmunk-iPhone.a";
+			remoteRef = D36682EE189171F900F23550 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D36682F1189171F900F23550 /* ObjectiveChipmunkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ObjectiveChipmunkTests.xctest;
+			remoteRef = D36682F0189171F900F23550 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D36682F3189171F900F23550 /* libObjectiveChipmunk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libObjectiveChipmunk.a;
+			remoteRef = D36682F2189171F900F23550 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D306E129147190B7008E3C29 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D323C797189184000074008E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D323C7CD1891957D0074008E /* TestImageRGB.png in Resources */,
+				D323C7CC1891957D0074008E /* TestImageLA.png in Resources */,
+				D323C7B31891844C0074008E /* ChipmunkPro-iPhone Tests-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D306E127147190B7008E3C29 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D36C75E5148D540000631A0D /* Bench.c in Sources */,
+				D306E137147190B7008E3C29 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3121D0118919F6200856016 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3121D0218919F6200856016 /* cpHastySpace.c in Sources */,
+				D3121D0318919F6200856016 /* ChipmunkHastySpace.m in Sources */,
+				D3121D0418919F6200856016 /* cpMarch.c in Sources */,
+				D3121D0518919F6200856016 /* cpPolyline.c in Sources */,
+				D3121D0618919F6200856016 /* ChipmunkAutoGeometry.m in Sources */,
+				D3121D0718919F6200856016 /* ChipmunkImageSampler.m in Sources */,
+				D3121D0818919F6200856016 /* ChipmunkPointCloudSampler.m in Sources */,
+				D3121D0918919F6200856016 /* ChipmunkTileCache.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D323C795189184000074008E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D323C7B8189184D30074008E /* ConvexTest.m in Sources */,
+				D323C7B9189184D30074008E /* MiscTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D33229E51469B1E200C9F85A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3284F2D1477960D00C7649B /* cpHastySpace.c in Sources */,
+				D3284F2E1477960D00C7649B /* ChipmunkHastySpace.m in Sources */,
+				D33229FD1469B22300C9F85A /* cpMarch.c in Sources */,
+				D33229FE1469B22300C9F85A /* cpPolyline.c in Sources */,
+				D33229F91469B21D00C9F85A /* ChipmunkAutoGeometry.m in Sources */,
+				D33229FA1469B21D00C9F85A /* ChipmunkImageSampler.m in Sources */,
+				D33229FB1469B21D00C9F85A /* ChipmunkPointCloudSampler.m in Sources */,
+				D33229FC1469B21D00C9F85A /* ChipmunkTileCache.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D306E14114719295008E3C29 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D33229E81469B1E200C9F85A /* ChipmunkPro-iPhone */;
+			targetProxy = D306E14014719295008E3C29 /* PBXContainerItemProxy */;
+		};
+		D3121D1B18919FD600856016 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ObjectiveChipmunk;
+			targetProxy = D3121D1A18919FD600856016 /* PBXContainerItemProxy */;
+		};
+		D323C7A7189184000074008E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D33229E81469B1E200C9F85A /* ChipmunkPro-iPhone */;
+			targetProxy = D323C7A6189184000074008E /* PBXContainerItemProxy */;
+		};
+		D36682F51891720800F23550 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ObjectiveChipmunk-iPhone";
+			targetProxy = D36682F41891720800F23550 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INPUT_FILETYPE = sourcecode.c.objc;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/Chipmunk/include\"/**",
+					"\"$(SRCROOT)/Chipmunk/objectivec/include\"",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				OTHER_CFLAGS = (
+					"-DCP_USE_CGPOINTS",
+					"-ffast-math",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INPUT_FILETYPE = sourcecode.c.objc;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/Chipmunk/include\"/**",
+					"\"$(SRCROOT)/Chipmunk/objectivec/include\"",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				OTHER_CFLAGS = (
+					"-mfpu=neon",
+					"-ffast-math",
+					"-DNDEBUG",
+					"-DCP_USE_CGPOINTS",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		D306E13D147190B8008E3C29 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "BenchmarkApp/BenchmarkApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D306E13E147190B8008E3C29 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "BenchmarkApp/BenchmarkApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D306E13F147190B8008E3C29 /* Release-Trial */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "BenchmarkApp/BenchmarkApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = "Release-Trial";
+		};
+		D311574412AEB2280038B857 /* Release-Trial */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INPUT_FILETYPE = sourcecode.c.objc;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/Chipmunk/include\"/**",
+					"\"$(SRCROOT)/Chipmunk/objectivec/include\"",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				OTHER_CFLAGS = (
+					"-DCHIPMUNK_PRO_TRIAL",
+					"-ffast-math",
+					"-DNDEBUG",
+					"-DCP_USE_CGPOINTS",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = "Release-Trial";
+		};
+		D3121D0E18919F6200856016 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/ChipmunkPro.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				PRODUCT_NAME = ChipmunkPro;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D3121D0F18919F6200856016 /* Debug-Trial */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/ChipmunkPro.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				PRODUCT_NAME = ChipmunkPro;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = "Debug-Trial";
+		};
+		D3121D1018919F6200856016 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/ChipmunkPro.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				PRODUCT_NAME = ChipmunkPro;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D3121D1118919F6200856016 /* Release-Trial */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/ChipmunkPro.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				PRODUCT_NAME = ChipmunkPro;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release-Trial";
+		};
+		D323C7A9189184000074008E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D323C7AA189184000074008E /* Debug-Trial */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = "Debug-Trial";
+		};
+		D323C7AB189184000074008E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		D323C7AC189184000074008E /* Release-Trial */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = "Release-Trial";
+		};
+		D33229F11469B1E200C9F85A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/ChipmunkPro.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D33229F21469B1E200C9F85A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/ChipmunkPro.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D33229F31469B1E200C9F85A /* Release-Trial */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/ChipmunkPro.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release-Trial";
+		};
+		D3C5C555149B0453009D19AF /* Debug-Trial */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INPUT_FILETYPE = sourcecode.c.objc;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/Chipmunk/include\"/**",
+					"\"$(SRCROOT)/Chipmunk/objectivec/include\"",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				OTHER_CFLAGS = (
+					"-DCHIPMUNK_PRO_TRIAL",
+					"-DCP_USE_CGPOINTS",
+					"-ffast-math",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = "Debug-Trial";
+		};
+		D3C5C557149B0453009D19AF /* Debug-Trial */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/ChipmunkPro.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = "Debug-Trial";
+		};
+		D3C5C559149B0453009D19AF /* Debug-Trial */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "BenchmarkApp/BenchmarkApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = "Debug-Trial";
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "ChipmunkPro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				D3C5C555149B0453009D19AF /* Debug-Trial */,
+				1DEB922408733DC00010E9CD /* Release */,
+				D311574412AEB2280038B857 /* Release-Trial */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D306E13C147190B8008E3C29 /* Build configuration list for PBXNativeTarget "Benchmark-iPhone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D306E13D147190B8008E3C29 /* Debug */,
+				D3C5C559149B0453009D19AF /* Debug-Trial */,
+				D306E13E147190B8008E3C29 /* Release */,
+				D306E13F147190B8008E3C29 /* Release-Trial */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3121D0D18919F6200856016 /* Build configuration list for PBXNativeTarget "ChipmunkPro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3121D0E18919F6200856016 /* Debug */,
+				D3121D0F18919F6200856016 /* Debug-Trial */,
+				D3121D1018919F6200856016 /* Release */,
+				D3121D1118919F6200856016 /* Release-Trial */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D323C7A8189184000074008E /* Build configuration list for PBXNativeTarget "ChipmunkPro-iPhone Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D323C7A9189184000074008E /* Debug */,
+				D323C7AA189184000074008E /* Debug-Trial */,
+				D323C7AB189184000074008E /* Release */,
+				D323C7AC189184000074008E /* Release-Trial */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D33229F41469B1E200C9F85A /* Build configuration list for PBXNativeTarget "ChipmunkPro-iPhone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D33229F11469B1E200C9F85A /* Debug */,
+				D3C5C557149B0453009D19AF /* Debug-Trial */,
+				D33229F21469B1E200C9F85A /* Release */,
+				D33229F31469B1E200C9F85A /* Release-Trial */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
