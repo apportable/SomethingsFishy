@@ -28,12 +28,30 @@
     ChipmunkCircleShape *_fishShape;
     ChipmunkBody *_fishBody;
     
+    ChipmunkPolyShape *_rightNetLeftPoleShape;
+    ChipmunkBody *_rightNetLeftPoleBody;
+    ChipmunkPolyShape *_rightNetRightPoleShape;
+    ChipmunkBody *_rightNetRightPoleBody;
+    
+    ChipmunkPolyShape *_leftNetLeftPoleShape;
+    ChipmunkBody *_leftNetLeftPoleBody;
+    ChipmunkPolyShape *_leftNetRightPoleShape;
+    ChipmunkBody *_leftNetRightPoleBody;
+    
+    ChipmunkPolyShape *_leftGoalLineShape;
+    ChipmunkPolyShape *_rightGoalLineShape;
+    ChipmunkBody *_leftGoalLineBody;
+    ChipmunkBody *_rightGoalLineBody;
+    
     CGPoint _lastFishPosition;
     CGPoint _currentFirstPosition;
     CGFloat _currentSpeed;
     
-    NSUInteger lscore;
-    NSUInteger rscore;
+    NSUInteger _leftScore;
+    NSUInteger _rightScore;
+    
+    UILabel *_leftScoreLabel;
+    UILabel *_rightScoreLabel;
 }
 
 @end
@@ -120,9 +138,27 @@ static NSString *actorType = @"ballType";
     netLeftView = [[UIImageView alloc] initWithImage:netLeftImage];
     netRightView = [[UIImageView alloc] initWithImage:netRightImage];
     
-    soccerballView.frame = CGRectMake(screen.size.width/2, screen.size.height/2, 100, 100);
+    soccerballView.frame = CGRectMake(screen.size.width/2, screen.size.height/2, 50, 50);
     netLeftView.frame = CGRectMake(0, screen.size.height/2 - 150, 200, 300);
     netRightView.frame = CGRectMake(screen.size.width - 200, screen.size.height/2 - 150, 200, 300);
+    
+    _rightScore = 0;
+    _leftScore = 0;
+    
+    _leftScoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    _leftScoreLabel.text = @"0";
+    _leftScoreLabel.font = [UIFont fontWithName:@"Times" size:50.0f];
+    _leftScoreLabel.textColor = [UIColor whiteColor];
+    
+    _rightScoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(screen.size.width-100, 100, 100, 100)];
+    _rightScoreLabel.text = @"0";
+    _rightScoreLabel.font = [UIFont fontWithName:@"Times" size:50.0f];
+    _rightScoreLabel.textColor = [UIColor whiteColor];
+
+    
+    [[self view] addSubview:_rightScoreLabel];
+    [[self view] addSubview:_leftScoreLabel];
+    
     
     [[self view] addSubview:soccerballView];
     [[self view] addSubview:netLeftView];
@@ -132,17 +168,18 @@ static NSString *actorType = @"ballType";
     _space.damping = 0.7;
     [_space addBounds:cpBBNew(screen.origin.x, screen.origin.y+margin, screen.size.width, screen.size.height-margin) thickness:2000.0f elasticity:1.0f friction:1.0f filter:CP_SHAPE_FILTER_ALL collisionType:borderType];
     
-    cpFloat moment = cpMomentForCircle(1.0f, 0, 50, cpvzero);
+    cpFloat fishMoment = cpMomentForCircle(1.0f, 0, 50, cpvzero);
+    cpFloat ballMoment = cpMomentForCircle(1.0f, 0, 25, cpvzero);
     
-    _ballBody = [ChipmunkBody bodyWithMass:1.0f andMoment:moment];
+    _ballBody = [ChipmunkBody bodyWithMass:1.0f andMoment:ballMoment];
     _ballBody.position = cpv(screen.size.width/2, screen.size.height/2);
     
-    _ballShape = [[ChipmunkCircleShape alloc] initWithBody:_ballBody radius:50 offset:cpvzero];
+    _ballShape = [[ChipmunkCircleShape alloc] initWithBody:_ballBody radius:25 offset:cpvzero];
     _ballShape.friction = 0.2f;
     _ballShape.elasticity = 1.0f;
     _ballShape.userData = soccerballView;
     
-    _fishBody = [[ChipmunkBody alloc] initWithMass:1.0f andMoment:moment];
+    _fishBody = [[ChipmunkBody alloc] initWithMass:1.0f andMoment:fishMoment];
     //_fishBody.type = CP_BODY_TYPE_STATIC;
     
     _fishShape = [[ChipmunkCircleShape alloc] initWithBody:_fishBody radius:50 offset:cpvzero];
@@ -150,11 +187,50 @@ static NSString *actorType = @"ballType";
     _fishShape.friction = 1.0f;
 
     
+    //soccer nets
+    cpFloat poleMoment = cpMomentForBox(FLT_MAX, 200, 20);
+    _leftNetLeftPoleBody = [ChipmunkBody bodyWithMass:FLT_MAX andMoment:poleMoment];
+    _leftNetRightPoleBody = [ChipmunkBody bodyWithMass:FLT_MAX andMoment:poleMoment];
+    _rightNetLeftPoleBody = [ChipmunkBody bodyWithMass:FLT_MAX andMoment:poleMoment];
+    _rightNetRightPoleBody = [ChipmunkBody bodyWithMass:FLT_MAX andMoment:poleMoment];
+    _leftNetLeftPoleBody.position = cpv(0, screen.size.height/2.0f + 130.0f); // I am so sorry for these hardcoded values.
+    _leftNetRightPoleBody.position = cpv(0, screen.size.height/2.0f - 150.0f);
+    _rightNetLeftPoleBody.position = cpv(screen.size.width-100.0f, screen.size.height/2.0f + 130.0f);
+    _rightNetRightPoleBody.position = cpv(screen.size.width-100.0f, screen.size.height/2.0f - 150.0f);
+    
+    _leftNetLeftPoleShape = [[ChipmunkPolyShape alloc] initBoxWithBody:_leftNetLeftPoleBody width:200 height:20 radius:0.0f];
+    _leftNetRightPoleShape = [[ChipmunkPolyShape alloc] initBoxWithBody:_leftNetRightPoleBody width:200 height:20 radius:0.0f];
+    _rightNetLeftPoleShape = [[ChipmunkPolyShape alloc] initBoxWithBody:_rightNetLeftPoleBody width:200 height:20 radius:0.0f];
+    _rightNetRightPoleShape = [[ChipmunkPolyShape alloc] initBoxWithBody:_rightNetRightPoleBody width:200 height:20 radius:0.0f];
+    
+    _leftNetLeftPoleShape.friction = 0.2f;
+    _leftNetLeftPoleShape.elasticity = 1.0f;
+    _leftNetLeftPoleShape.userData = netLeftView;
+    _leftNetRightPoleShape.friction = 0.2f;
+    _leftNetRightPoleShape.elasticity = 1.0f;
+    _leftNetRightPoleShape.userData = netLeftView;
+
+    _rightNetLeftPoleShape.friction = 0.2f;
+    _rightNetLeftPoleShape.elasticity = 1.0f;
+    _rightNetLeftPoleShape.userData = netRightView;
+    _rightNetRightPoleShape.friction = 0.2f;
+    _rightNetRightPoleShape.elasticity = 1.0f;
+    _rightNetRightPoleShape.userData = netRightView;
+    
+    
     [_space add:_ballShape];
     [_space add:_ballBody];
     [_space add:_fishShape];
     [_space add:_fishBody];
 
+    [_space add:_leftNetLeftPoleShape];
+    [_space add:_leftNetLeftPoleBody];
+    [_space add:_leftNetRightPoleShape];
+    [_space add:_leftNetRightPoleBody];
+    [_space add:_rightNetLeftPoleShape];
+    [_space add:_rightNetLeftPoleBody];
+    [_space add:_rightNetRightPoleShape];
+    [_space add:_rightNetRightPoleBody];
     
     //_space.gravity = cpvmult(cpv(0, 1), 300.0f);
     
