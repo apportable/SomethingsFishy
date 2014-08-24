@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC88B3F319A98B6700868C1A /* MCParallaxLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BC88B3F219A98B6700868C1A /* MCParallaxLayer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D9AC900C19A91E63003E99EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AC900B19A91E63003E99EC /* main.m */; };
 		D9AC900F19A91E63003E99EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AC900E19A91E63003E99EC /* AppDelegate.m */; };
 		D9AC901219A91E63003E99EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AC901119A91E63003E99EC /* ViewController.m */; };
@@ -54,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC88B3F119A98B6700868C1A /* MCParallaxLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCParallaxLayer.h; sourceTree = "<group>"; };
+		BC88B3F219A98B6700868C1A /* MCParallaxLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCParallaxLayer.m; sourceTree = "<group>"; };
 		D9AC900619A91E63003E99EC /* SomethingsFishy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SomethingsFishy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AC900A19A91E63003E99EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9AC900B19A91E63003E99EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 				D9AC906B19A93787003E99EC /* ColorTrackingCamera.h */,
 				D9AC906C19A93787003E99EC /* ColorTrackingCamera.m */,
 				D9AC901319A91E63003E99EC /* Main.storyboard */,
+				BC88B3F119A98B6700868C1A /* MCParallaxLayer.h */,
+				BC88B3F219A98B6700868C1A /* MCParallaxLayer.m */,
 				D9AC901619A91E63003E99EC /* Images.xcassets */,
 				D9AC900919A91E63003E99EC /* Supporting Files */,
 			);
@@ -348,6 +353,7 @@
 			files = (
 				D9AC906519A93587003E99EC /* ColorTrackingGLView.m in Sources */,
 				D9AC901219A91E63003E99EC /* ViewController.m in Sources */,
+				BC88B3F319A98B6700868C1A /* MCParallaxLayer.m in Sources */,
 				D9AC900F19A91E63003E99EC /* AppDelegate.m in Sources */,
 				D9AC906D19A93787003E99EC /* ColorTrackingCamera.m in Sources */,
 				D9AC900C19A91E63003E99EC /* main.m in Sources */,
