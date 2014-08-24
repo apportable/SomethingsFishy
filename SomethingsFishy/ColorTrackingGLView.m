@@ -110,8 +110,8 @@ enum {
         NSLog(@"frame %@", NSStringFromCGRect(frame));
         NSLog(@"%@",lowerToolbar);
         lowerToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-        lowerToolbar.tintColor = [UIColor clearColor];
-        
+        lowerToolbar.backgroundColor = [UIColor whiteColor];
+        lowerToolbar.tintColor = [UIColor blackColor];
         [lowerToolbar setItems:theToolbarItems];
         
         [self addSubview:lowerToolbar];
