@@ -25,6 +25,22 @@
 		D9AC906D19A93787003E99EC /* ColorTrackingCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AC906C19A93787003E99EC /* ColorTrackingCamera.m */; };
 		D9AC906F19A93792003E99EC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AC906E19A93792003E99EC /* CoreMedia.framework */; };
 		D9AC907119A9379A003E99EC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AC907019A9379A003E99EC /* AVFoundation.framework */; };
+		D9AC907319A956A3003E99EC /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AC907219A956A3003E99EC /* Accelerate.framework */; };
+		D9AC908319A96750003E99EC /* clam-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC907419A96750003E99EC /* clam-3.png */; };
+		D9AC908419A96750003E99EC /* Clam-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC907519A96750003E99EC /* Clam-2.png */; };
+		D9AC908519A96750003E99EC /* clam-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC907619A96750003E99EC /* clam-1.png */; };
+		D9AC908619A96750003E99EC /* Plant-6.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC907719A96750003E99EC /* Plant-6.png */; };
+		D9AC908719A96750003E99EC /* Plant-5.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC907819A96750003E99EC /* Plant-5.png */; };
+		D9AC908819A96750003E99EC /* Plant-4.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC907919A96750003E99EC /* Plant-4.png */; };
+		D9AC908919A96750003E99EC /* Plant-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC907A19A96750003E99EC /* Plant-3.png */; };
+		D9AC908A19A96750003E99EC /* Plant-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC907B19A96750003E99EC /* Plant-2.png */; };
+		D9AC908B19A96750003E99EC /* Plant-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC907C19A96750003E99EC /* Plant-1.png */; };
+		D9AC908C19A96750003E99EC /* Shafts-Light.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC907D19A96750003E99EC /* Shafts-Light.png */; };
+		D9AC908D19A96750003E99EC /* Sea-Bed.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC907E19A96750003E99EC /* Sea-Bed.png */; };
+		D9AC908E19A96750003E99EC /* Rock.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC907F19A96750003E99EC /* Rock.png */; };
+		D9AC908F19A96750003E99EC /* seaweed-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC908019A96750003E99EC /* seaweed-2.png */; };
+		D9AC909019A96750003E99EC /* seaweed-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC908119A96750003E99EC /* seaweed-1.png */; };
+		D9AC909119A96750003E99EC /* Bk-Gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AC908219A96750003E99EC /* Bk-Gradient.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +80,22 @@
 		D9AC906C19A93787003E99EC /* ColorTrackingCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTrackingCamera.m; sourceTree = "<group>"; };
 		D9AC906E19A93792003E99EC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		D9AC907019A9379A003E99EC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D9AC907219A956A3003E99EC /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		D9AC907419A96750003E99EC /* clam-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clam-3.png"; sourceTree = "<group>"; };
+		D9AC907519A96750003E99EC /* Clam-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Clam-2.png"; sourceTree = "<group>"; };
+		D9AC907619A96750003E99EC /* clam-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clam-1.png"; sourceTree = "<group>"; };
+		D9AC907719A96750003E99EC /* Plant-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Plant-6.png"; sourceTree = "<group>"; };
+		D9AC907819A96750003E99EC /* Plant-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Plant-5.png"; sourceTree = "<group>"; };
+		D9AC907919A96750003E99EC /* Plant-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Plant-4.png"; sourceTree = "<group>"; };
+		D9AC907A19A96750003E99EC /* Plant-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Plant-3.png"; sourceTree = "<group>"; };
+		D9AC907B19A96750003E99EC /* Plant-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Plant-2.png"; sourceTree = "<group>"; };
+		D9AC907C19A96750003E99EC /* Plant-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Plant-1.png"; sourceTree = "<group>"; };
+		D9AC907D19A96750003E99EC /* Shafts-Light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shafts-Light.png"; sourceTree = "<group>"; };
+		D9AC907E19A96750003E99EC /* Sea-Bed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sea-Bed.png"; sourceTree = "<group>"; };
+		D9AC907F19A96750003E99EC /* Rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rock.png; sourceTree = "<group>"; };
+		D9AC908019A96750003E99EC /* seaweed-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seaweed-2.png"; sourceTree = "<group>"; };
+		D9AC908119A96750003E99EC /* seaweed-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seaweed-1.png"; sourceTree = "<group>"; };
+		D9AC908219A96750003E99EC /* Bk-Gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bk-Gradient.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9AC907319A956A3003E99EC /* Accelerate.framework in Frameworks */,
 				D9AC907119A9379A003E99EC /* AVFoundation.framework in Frameworks */,
 				D9AC906F19A93792003E99EC /* CoreMedia.framework in Frameworks */,
 				D9AC906A19A9362D003E99EC /* QuartzCore.framework in Frameworks */,
@@ -129,6 +162,21 @@
 		D9AC900919A91E63003E99EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D9AC907419A96750003E99EC /* clam-3.png */,
+				D9AC907519A96750003E99EC /* Clam-2.png */,
+				D9AC907619A96750003E99EC /* clam-1.png */,
+				D9AC907719A96750003E99EC /* Plant-6.png */,
+				D9AC907819A96750003E99EC /* Plant-5.png */,
+				D9AC907919A96750003E99EC /* Plant-4.png */,
+				D9AC907A19A96750003E99EC /* Plant-3.png */,
+				D9AC907B19A96750003E99EC /* Plant-2.png */,
+				D9AC907C19A96750003E99EC /* Plant-1.png */,
+				D9AC907D19A96750003E99EC /* Shafts-Light.png */,
+				D9AC907E19A96750003E99EC /* Sea-Bed.png */,
+				D9AC907F19A96750003E99EC /* Rock.png */,
+				D9AC908019A96750003E99EC /* seaweed-2.png */,
+				D9AC908119A96750003E99EC /* seaweed-1.png */,
+				D9AC908219A96750003E99EC /* Bk-Gradient.png */,
 				D9AC900A19A91E63003E99EC /* Info.plist */,
 				D9AC900B19A91E63003E99EC /* main.m */,
 			);
@@ -168,6 +216,7 @@
 		D9AC906819A93606003E99EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9AC907219A956A3003E99EC /* Accelerate.framework */,
 				D9AC907019A9379A003E99EC /* AVFoundation.framework */,
 				D9AC906E19A93792003E99EC /* CoreMedia.framework */,
 				D9AC906919A9362D003E99EC /* QuartzCore.framework */,
@@ -257,13 +306,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9AC909019A96750003E99EC /* seaweed-1.png in Resources */,
 				D9AC905D19A93529003E99EC /* DirectDisplayShader.fsh in Resources */,
+				D9AC908919A96750003E99EC /* Plant-3.png in Resources */,
+				D9AC908E19A96750003E99EC /* Rock.png in Resources */,
 				D9AC905F19A93529003E99EC /* PositionShader.fsh in Resources */,
+				D9AC908319A96750003E99EC /* clam-3.png in Resources */,
+				D9AC908419A96750003E99EC /* Clam-2.png in Resources */,
+				D9AC908619A96750003E99EC /* Plant-6.png in Resources */,
 				D9AC906119A93529003E99EC /* ThresholdShader.fsh in Resources */,
+				D9AC908D19A96750003E99EC /* Sea-Bed.png in Resources */,
+				D9AC908819A96750003E99EC /* Plant-4.png in Resources */,
+				D9AC908719A96750003E99EC /* Plant-5.png in Resources */,
 				D9AC901519A91E63003E99EC /* Main.storyboard in Resources */,
 				D9AC905E19A93529003E99EC /* DirectDisplayShader.vsh in Resources */,
+				D9AC908F19A96750003E99EC /* seaweed-2.png in Resources */,
+				D9AC908C19A96750003E99EC /* Shafts-Light.png in Resources */,
 				D9AC901719A91E63003E99EC /* Images.xcassets in Resources */,
+				D9AC908B19A96750003E99EC /* Plant-1.png in Resources */,
+				D9AC908A19A96750003E99EC /* Plant-2.png in Resources */,
 				D9AC906219A93529003E99EC /* ThresholdShader.vsh in Resources */,
+				D9AC909119A96750003E99EC /* Bk-Gradient.png in Resources */,
+				D9AC908519A96750003E99EC /* clam-1.png in Resources */,
 				D9AC906019A93529003E99EC /* PositionShader.vsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,6 +470,7 @@
 				INFOPLIST_FILE = SomethingsFishy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -417,6 +482,7 @@
 				INFOPLIST_FILE = SomethingsFishy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

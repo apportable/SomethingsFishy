@@ -17,7 +17,11 @@
 
 typedef enum { PASSTHROUGH_VIDEO, SIMPLE_THRESHOLDING, POSITION_THRESHOLDING, OBJECT_TRACKING} ColorTrackingDisplayMode;
 
+@protocol ColorTrackingObserver <NSObject>
 
+- (void)trackingPositionChanged:(CGPoint)point inFrame:(CGRect)frame;
+
+@end
 
 @interface ColorTrackingGLView : UIView <ColorTrackingCameraDelegate>
 {
@@ -56,5 +60,8 @@ typedef enum { PASSTHROUGH_VIDEO, SIMPLE_THRESHOLDING, POSITION_THRESHOLDING, OB
 - (void)setDisplayFramebuffer;
 - (void)setPositionThresholdFramebuffer;
 - (BOOL)presentFramebuffer;
+
+- (void)addTrackingObserver:(id<ColorTrackingObserver>)observer;
+- (void)removeTrackingObserver:(id<ColorTrackingObserver>)observer;
 
 @end

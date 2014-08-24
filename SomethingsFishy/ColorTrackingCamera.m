@@ -66,7 +66,8 @@
 
 	// Start capturing
 //	[captureSession setSessionPreset:AVCaptureSessionPresetHigh];
-	[captureSession setSessionPreset:AVCaptureSessionPreset640x480];
+	[captureSession setSessionPreset:AVCaptureSessionPreset1280x720];
+    [captureSession setUsesApplicationAudioSession:NO];
 	if (![captureSession isRunning])
 	{
 		[captureSession startRunning];
@@ -100,8 +101,8 @@
 	if (videoPreviewLayer == nil)
 	{
         videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:captureSession];
-        
-        [videoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+        //[videoPreviewLayer setOrientation:AVCaptureVideoOrientationLandscapeRight];
+        //[videoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspect];
 	}
 	
 	return videoPreviewLayer;

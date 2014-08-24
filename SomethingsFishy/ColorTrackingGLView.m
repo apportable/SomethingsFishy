@@ -11,6 +11,8 @@
 #import "ColorTrackingGLView.h"
 #import <OpenGLES/EAGLDrawable.h>
 #import <QuartzCore/QuartzCore.h>
+#import <Accelerate/Accelerate.h>
+
 
 // Uniform index.
 enum {
@@ -28,7 +30,9 @@ enum {
     NUM_ATTRIBUTES
 };
 
-@implementation ColorTrackingGLView
+@implementation ColorTrackingGLView {
+    NSMutableArray *observers;
+}
 
 #pragma mark -
 #pragma mark Initialization and teardown
@@ -44,6 +48,7 @@ enum {
 {
     if ((self = [super initWithFrame:frame])) 
 	{
+        observers = [[NSMutableArray alloc] init];
 		// Do OpenGL Core Animation layer setup
 		CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
 		
@@ -278,9 +283,8 @@ enum {
     {
         //		glGenerateMipmap(GL_TEXTURE_2D);
         
-        
         // Grab the current position of the object from the offscreen framebuffer
-        glReadPixels(0, 0, (self.glWidth), (self.glHeight), GL_RGBA, GL_UNSIGNED_BYTE, rawPositionPixels);
+        glReadPixels(0, 0, self.glWidth, self.glHeight, GL_RGBA, GL_UNSIGNED_BYTE, rawPositionPixels);
         CGPoint currentTrackingLocation = [self centroidFromTexture:rawPositionPixels];
         
         if (isnan(currentTrackingLocation.x)|| isnan(currentTrackingLocation.y)) {
@@ -301,7 +305,7 @@ enum {
         //		glVertexAttribPointer(ATTRIB_TEXTUREPOSITON, 2, GL_FLOAT, 0, 0, passthroughTextureVertices);
         //		glEnableVertexAttribArray(ATTRIB_TEXTUREPOSITON);
         
-        glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);		
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     }
     else
     {
@@ -314,11 +318,11 @@ enum {
 #pragma mark OpenGL drawing
 
 - (GLuint)glHeight {
-    return 640;
+    return 720/2;
 }
 
 - (GLuint)glWidth {
-    return 480;
+    return 1280/2;
 }
 
 
@@ -591,20 +595,47 @@ enum {
      [self.view.layer addSublayer:camera.videoPreviewLayer];*/
 }
 
+
 - (void)processNewCameraFrame:(CVImageBufferRef)cameraFrame;
 {
     CVPixelBufferLockBaseAddress(cameraFrame, 0);
     size_t bufferHeight = CVPixelBufferGetHeight(cameraFrame);
     size_t bufferWidth = CVPixelBufferGetWidth(cameraFrame);
     
+    //NSLog(@"%zu %zu",bufferHeight, bufferWidth);
+    
+    
+    /*
+     * rotationConstant:   0 -- rotate 0 degrees (simply copy the data from src to dest)
+     *             1 -- rotate 90 degrees counterclockwise
+     *             2 -- rotate 180 degress
+     *             3 -- rotate 270 degrees counterclockwise
+     */
+    
+    uint8_t rotationConstant = 1;
+    
+    size_t bytesPerRow = CVPixelBufferGetBytesPerRow(cameraFrame);
+    size_t currSize = bytesPerRow*bufferHeight*sizeof(unsigned char);
+    size_t bytesPerRowOut = 4*bufferHeight*sizeof(unsigned char);
+    
+    unsigned char *outBuff = (unsigned char*)malloc(currSize);
+    
+    vImage_Buffer ibuff = { CVPixelBufferGetBaseAddress(cameraFrame), bufferHeight, bufferWidth, bytesPerRow};
+    vImage_Buffer ubuff = { outBuff, bufferWidth, bufferHeight, bytesPerRowOut};
+    
+    uint8_t bgColor[4] = {0, 0, 0, 0};
+    vImage_Error err= vImageRotate90_ARGB8888 (&ibuff, &ubuff, rotationConstant, bgColor, 0);
+    if (err != kvImageNoError) NSLog(@"%ld", err);
+    
+    
     if (shouldReplaceThresholdColor)
     {
         // Extract a color at the touch point from the raw camera data
-        int scaledVideoPointX = round((self.bounds.size.width - currentTouchPoint.x) * (CGFloat)bufferHeight / self.bounds.size.width);
-        int scaledVideoPointY = round(currentTouchPoint.y * (CGFloat)bufferWidth / self.bounds.size.height);
+        int scaledVideoPointX = round((self.bounds.size.width - currentTouchPoint.x) * (CGFloat)bufferWidth / self.bounds.size.width);
+        int scaledVideoPointY = round(currentTouchPoint.y * (CGFloat)bufferHeight / self.bounds.size.height);
         
-        unsigned char *rowBase = (unsigned char *)CVPixelBufferGetBaseAddress(cameraFrame);
-        size_t bytesPerRow = CVPixelBufferGetBytesPerRow(cameraFrame);
+        unsigned char *rowBase = outBuff;
+        size_t bytesPerRow = 4*bufferHeight*sizeof(unsigned char);
         unsigned char *pixel = rowBase + (scaledVideoPointX * bytesPerRow) + (scaledVideoPointY * 4);
         
         thresholdColor[0] = (float)pixel[2] / 255.0;
@@ -628,8 +659,9 @@ enum {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     
     // Using BGRA extension to pull in video frame data directly
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)bufferWidth, (GLsizei)bufferHeight, 0, GL_BGRA, GL_UNSIGNED_BYTE, CVPixelBufferGetBaseAddress(cameraFrame));
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)bufferHeight, (GLsizei)bufferWidth, 0, GL_BGRA, GL_UNSIGNED_BYTE, outBuff);
     
+    free(outBuff);
     [self drawFrame];
     
     glDeleteTextures(1, &videoFrameTexture);
@@ -664,5 +696,12 @@ enum {
 {
 }
 
+
+- (void)addTrackingObserver:(id<ColorTrackingObserver>)observer {
+    [observers addObject:observer];
+}
+- (void)removeTrackingObserver:(id<ColorTrackingObserver>)observer {
+    [observers removeObject:observer];
+}
 
 @end

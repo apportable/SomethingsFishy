@@ -9,7 +9,9 @@
 #import "ViewController.h"
 #import "ColorTrackingGLView.h"
 
-@interface ViewController ()
+@interface ViewController () {
+    ColorTrackingGLView *fishView;
+}
 
 @end
 
@@ -26,7 +28,26 @@
 }
 
 - (void)loadView {
-    self.view = [[ColorTrackingGLView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+    CGRect screen = [[UIScreen mainScreen] bounds];
+    
+    
+    
+    self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    CGFloat height = screen.size.height;
+    CGFloat width = screen.size.width;
+    height = (720.0f/1280.0f)*width;
+    
+    CGFloat margin = (screen.size.height - height)/2;
+    fishView = [[ColorTrackingGLView alloc] initWithFrame:CGRectMake(0,margin,width,height)];
+    fishView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight;
+    
+    UIImageView *seaBed = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Sea-Bed"]];
+    
+    [seaBed setFrame:CGRectMake(0, (screen.size.height-(margin+10)), screen.size.width, margin+10)];
+    
+    [[self view] addSubview:fishView];
+    [[self view] addSubview:seaBed];
+    
 }
 
 @end
